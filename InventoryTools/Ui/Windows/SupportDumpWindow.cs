@@ -26,7 +26,7 @@ namespace InventoryTools.Ui
 
         public override void Initialize()
         {
-            WindowName = "Generate Support Dump";
+            WindowName = "生成支持诊断信息";
             Key = "supportdump";
         }
 
@@ -42,13 +42,13 @@ namespace InventoryTools.Ui
         {
             ImGui.PushTextWrapPos();
             ImGui.TextWrapped(
-                "Only press this if you have been instructed to, it will generate a zip file containing your inventory, the allagan tools configuration, and your logs. If you are attempting to provide this information to help fix a bug, turn on Verbose Logging in File, replicate the bug and then generate this dump. Proceed?");
+                "仅在收到明确指示时使用此功能。它会生成包含库存、Allagan Tools 配置和日志的 ZIP 文件。若要协助排查问题，请先在“文件”菜单中启用详细日志，重现问题后再生成诊断文件。是否继续？");
             ImGui.PopTextWrapPos();
             ImGui.NewLine();
 
-            if (ImGui.Button("Proceed"))
+            if (ImGui.Button("继续"))
             {
-                _fileDialogManager.SaveFileDialog("Save support dump", "*.zip", "support_dump.zip", ".zip",
+                _fileDialogManager.SaveFileDialog("保存支持诊断文件", "*.zip", "support_dump.zip", ".zip",
                     (success, path) =>
                     {
                         if (success)
@@ -60,7 +60,7 @@ namespace InventoryTools.Ui
 
             ImGui.SameLine();
 
-            if (ImGui.Button("Cancel"))
+            if (ImGui.Button("取消"))
             {
                 this.IsOpen = false;
             }
@@ -71,16 +71,16 @@ namespace InventoryTools.Ui
             var result = _supportDumpService.GenerateDump(path);
             if (result.Success)
             {
-                var included = result.IncludedFiles.Any() ? string.Join(", ", result.IncludedFiles) : "no files";
-                _chatUtilities.Print($"Support dump saved to {result.ZipPath} ({included}).");
+                var included = result.IncludedFiles.Any() ? string.Join(", ", result.IncludedFiles) : "无文件";
+                _chatUtilities.Print($"支持诊断文件已保存到 {result.ZipPath}（包含：{included}）。");
                 if (result.MissingFiles.Any())
                 {
-                    _chatUtilities.PrintError($"The following files could not be included in the support dump: {string.Join(", ", result.MissingFiles)}.");
+                    _chatUtilities.PrintError($"以下文件无法加入支持诊断文件：{string.Join(", ", result.MissingFiles)}。");
                 }
             }
             else
             {
-                _chatUtilities.PrintError("Failed to generate the support dump. Please check your Dalamud log for details.");
+                _chatUtilities.PrintError("生成支持诊断文件失败，请查看 Dalamud 日志了解详情。");
             }
 
             this.IsOpen = false;

@@ -184,7 +184,7 @@ public class CraftOverlayWindow : OverlayWindow
         {
             if (popup)
             {
-                if (ImGui.MenuItem("Close"))
+                if (ImGui.MenuItem("关闭"))
                 {
                     this.Close();
                 }
@@ -346,7 +346,7 @@ public class CraftOverlayWindow : OverlayWindow
 
         if (SelectedConfiguration == null)
         {
-            ImGui.Text("No craft list active.");
+            ImGui.Text("当前没有启用的制作清单。" );
         }
         else if(craftList != null)
         {
@@ -432,7 +432,7 @@ public class CraftOverlayWindow : OverlayWindow
                                                 .Distinct().ToList();
                                             foreach (var result in sortingResults)
                                             {
-                                                ImGui.Text($"{result.Quantity} available to retrieve from {_characterMonitor.GetCharacterById(result.SourceRetainerId)?.FormattedName ?? "Unknown Retainer"} in {result.SourceBag.FormattedName()} at {result.BagLocation.X + 1}/{result.BagLocation.Y + 1}");
+                                                ImGui.Text($"可从 {_characterMonitor.GetCharacterById(result.SourceRetainerId)?.FormattedName ?? "未知雇员"} 的{result.SourceBag.FormattedName()}中取回 {result.Quantity} 件，位置：{result.BagLocation.X + 1}/{result.BagLocation.Y + 1}");
                                             }
                                         }
                                     }

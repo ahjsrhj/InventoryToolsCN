@@ -7,13 +7,13 @@ public class HistoryLayout : ConfigLayout
 {
     public override PageLayout Build()
     {
-        return Page("history", "History",
-            Paragraph("Records items moving into, out of and around your inventories so you can look back at what changed. History lists then read from that record."),
-            Paragraph("Without this enabled, History type lists will not function."),
-            Section("Tracking",
-                Setting<HistoryEnabledSetting>("Track inventory changes"),
+        return Page("history", "库存历史",
+            Paragraph("记录物品在各个库存之间的存入、取出与转移，方便回顾库存变化。历史清单会读取这些记录。"),
+            Paragraph("关闭此功能后，历史类型的清单将无法使用。"),
+            Section("记录设置",
+                Setting<HistoryEnabledSetting>("记录库存变动"),
                 EnabledBy<HistoryEnabledSetting>(
-                    Setting<HistoryTrackEventsSetting>("Events worth recording")))
+                    Setting<HistoryTrackEventsSetting>("要记录的事件")))
         );
     }
 }

@@ -74,7 +74,7 @@ public class EquipmentSuggestSlotColumn : AllaganLib.Interface.Grid.StringColumn
             return item.ClassJobRow.Base.Name.ToImGuiString().Humanize();
         }
 
-        return "Unknown";
+        return "未知";
     }
 
     public override string? RenderName { get; set; } = null;

@@ -71,7 +71,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
             var containerSize = _viewModeSetting.GetIconContainerSize(_configuration);
             if (item.SelectedItem == null)
             {
-                ImGui.Text("No item selected");
+                ImGui.Text("未选择物品");
             }
             else
             {
@@ -222,7 +222,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                         c.FilterType == Logic.FilterType.CraftFilter && !c.CraftListDefault).ToArray();
                 if (craftFilters.Length != 0)
                 {
-                    using var menu = ImRaii.Menu("Add to Craft List");
+                    using var menu = ImRaii.Menu("添加到制作清单");
                     if(menu)
                     {
                         foreach (var filter in craftFilters)
@@ -244,7 +244,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                     }
                 }
 
-                if (ImGui.Selectable("Add to new Craft List"))
+                if (ImGui.Selectable("添加到新建的制作清单"))
                 {
                     Task.Run(() =>
                     {
@@ -259,7 +259,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                         filter.NeedsRefresh = true;
                     });
                 }
-                if (ImGui.Selectable("Add to new Craft List (ephemeral)"))
+                if (ImGui.Selectable("添加到新建的临时制作清单"))
                 {
                     Task.Run(() =>
                     {
@@ -279,7 +279,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                     _listService.Lists.Where(c => c.FilterType == FilterType.CuratedList).ToArray();
                 if (curatedLists.Length != 0)
                 {
-                    using var menu = ImRaii.Menu("Add to Curated List");
+                    using var menu = ImRaii.Menu("添加到精选清单");
                     if(menu)
                     {
                         foreach (var filter in curatedLists)
@@ -299,7 +299,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                     }
                 }
 
-                if (ImGui.Selectable("Add to new Curated List"))
+                if (ImGui.Selectable("添加到新建的精选清单"))
                 {
                     Task.Run(() =>
                     {

@@ -7,24 +7,24 @@ public class HotkeysLayout : ConfigLayout
 {
     public override PageLayout Build()
     {
-        return Page("hotkeys", "Hotkeys",
-            Section("Toggle a window",
-                Paragraph("Work anywhere, whether or not you are hovering something."),
-                Setting<HotKeyListsWindowSetting>("Lists"),
-                Setting<HotkeyCraftWindowSetting>("Crafts"),
-                Setting<HotkeyConfigWindowSetting>("Configuration"),
-                Setting<HotkeyMobWindowSetting>("Mobs"),
-                Setting<HotkeyDutiesWindowSetting>("Duties"),
-                Setting<HotkeyAirshipWindowSetting>("Airships"),
-                Setting<HotkeySubmarinesWindowSetting>("Submarines"),
-                Setting<HotkeyRetainerTasksWindowSetting>("Retainer ventures")),
-            Section("While hovering an item",
-                Paragraph("These act on whatever item is under the cursor, so they only do anything while an item is hovered."),
-                Setting<HotkeyMoreInfoSetting>("More information"),
-                Setting<HotkeyOpenItemLogSetting>("Whichever log applies"),
-                Setting<HotkeyOpenCraftingLogSetting>("Crafting log"),
-                Setting<HotkeyOpenGatheringLogSetting>("Gathering log"),
-                Setting<HotkeyOpenFishingLogSetting>("Fishing log"))
+        return Page("hotkeys", "快捷键",
+            Section("切换窗口",
+                Paragraph("无论鼠标当前是否指向物品，均可使用这些快捷键。"),
+                Setting<HotKeyListsWindowSetting>("清单"),
+                Setting<HotkeyCraftWindowSetting>("制作"),
+                Setting<HotkeyConfigWindowSetting>("设置"),
+                Setting<HotkeyMobWindowSetting>("怪物"),
+                Setting<HotkeyDutiesWindowSetting>("副本"),
+                Setting<HotkeyAirshipWindowSetting>("飞艇"),
+                Setting<HotkeySubmarinesWindowSetting>("潜水艇"),
+                Setting<HotkeyRetainerTasksWindowSetting>("雇员探险")),
+            Section("指向物品时",
+                Paragraph("这些快捷键作用于鼠标指向的物品，仅在指向物品时生效。"),
+                Setting<HotkeyMoreInfoSetting>("查看详情"),
+                Setting<HotkeyOpenItemLogSetting>("打开对应日志"),
+                Setting<HotkeyOpenCraftingLogSetting>("制作笔记"),
+                Setting<HotkeyOpenGatheringLogSetting>("采集笔记"),
+                Setting<HotkeyOpenFishingLogSetting>("钓鱼笔记"))
         );
     }
 }

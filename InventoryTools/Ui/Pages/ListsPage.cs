@@ -39,7 +39,7 @@ namespace InventoryTools.Ui.Pages
         public override void Initialize() { }
 
         public override string Key { get; } = "data/lists";
-        public override string Name { get; } = "Lists";
+        public override string Name { get; } = "清单";
 
         public PopupMenu GetListMenu(FilterConfiguration configuration)
         {
@@ -48,9 +48,9 @@ namespace InventoryTools.Ui.Pages
                 _popupMenus[configuration] = new PopupMenu("fm" + configuration.Key, PopupMenu.PopupMenuButtons.LeftRight,
                     new List<PopupMenu.IPopupMenuItem>()
                     {
-                        new PopupMenu.PopupMenuItemSelectableAskName("Duplicate", "df_" + configuration.Key, configuration.Name, DuplicateList, "Duplicate the list."),
-                        new PopupMenu.PopupMenuItemSelectable("Export Configuration", "ef_" + configuration.Key, ExportList, "Copies the list export string to clipboard."),
-                        new PopupMenu.PopupMenuItemSelectableConfirm("Remove", "rf_" + configuration.Key, "Are you sure you want to remove this list?", RemoveList, "Remove the list."),
+                        new PopupMenu.PopupMenuItemSelectableAskName("复制", "df_" + configuration.Key, configuration.Name, DuplicateList, "复制此清单。"),
+                        new PopupMenu.PopupMenuItemSelectable("导出配置", "ef_" + configuration.Key, ExportList, "将清单导出代码复制到剪贴板。"),
+                        new PopupMenu.PopupMenuItemSelectableConfirm("移除", "rf_" + configuration.Key, "确定要移除此清单吗？", RemoveList, "移除此清单。"),
                     }
                 );
             }
@@ -109,7 +109,7 @@ namespace InventoryTools.Ui.Pages
             }
             else
             {
-                var error = "Invalid or incompatible list data in clipboard.";
+                var error = "剪贴板中的清单数据无效或与当前版本不兼容。";
                 if (isCraftList)
                 {
                     _craftListImportError = error;
@@ -137,7 +137,7 @@ namespace InventoryTools.Ui.Pages
                         _draggedItemKey = key;
                         _draggedSection = payloadId;
                         ImGui.SetDragDropPayload(payloadId, []);
-                        ImGui.TextUnformatted("Moving: " + (config.Name != "" ? config.Name : "Untitled"));
+                        ImGui.TextUnformatted("正在移动：" + (config.Name != "" ? config.Name : "未命名"));
                     }
                 }
 
@@ -175,7 +175,7 @@ namespace InventoryTools.Ui.Pages
 
                 ImGui.SameLine();
 
-                var displayName = config.Name != "" ? config.Name : "Untitled";
+                var displayName = config.Name != "" ? config.Name : "未命名";
                 ImGui.TextUnformatted(displayName);
 
                 if (showType)
@@ -209,9 +209,9 @@ namespace InventoryTools.Ui.Pages
                 .Where(c => c.FilterType == FilterType.CraftFilter && !c.CraftListDefault)
                 .ToList();
 
-            if (ImGui.CollapsingHeader("Item Lists", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+            if (ImGui.CollapsingHeader("物品清单", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
-                if (ImGui.Button("Import from Clipboard##itemlist"))
+                if (ImGui.Button("从剪贴板导入##itemlist"))
                 {
                     ImportFromClipboard(false);
                 }
@@ -229,7 +229,7 @@ namespace InventoryTools.Ui.Pages
 
                 if (itemLists.Count == 0)
                 {
-                    ImGui.TextUnformatted("No item lists created yet!");
+                    ImGui.TextUnformatted("尚未创建物品清单！");
                 }
                 else
                 {
@@ -242,9 +242,9 @@ namespace InventoryTools.Ui.Pages
 
             ImGui.Spacing();
 
-            if (ImGui.CollapsingHeader("Craft Lists", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+            if (ImGui.CollapsingHeader("制作清单", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
-                if (ImGui.Button("Import from Clipboard##craftlist"))
+                if (ImGui.Button("从剪贴板导入##craftlist"))
                 {
                     ImportFromClipboard(true);
                 }
@@ -262,7 +262,7 @@ namespace InventoryTools.Ui.Pages
 
                 if (craftLists.Count == 0)
                 {
-                    ImGui.TextUnformatted("No craft lists created yet!");
+                    ImGui.TextUnformatted("尚未创建制作清单！");
                 }
                 else
                 {

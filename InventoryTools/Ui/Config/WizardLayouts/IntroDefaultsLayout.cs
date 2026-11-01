@@ -6,10 +6,10 @@ public class IntroDefaultsLayout : ContentLayout
 {
     public override PageLayout Build()
     {
-        return Page("intro/defaults", "Defaults",
-            Paragraph("By default, the plugin is configured with a default set of features enabled."),
-            Paragraph("The next screens will show you the settings for the most commonly used features."),
-            Paragraph("Hover the ? icons to get further information about what each setting does.")
+        return Page("intro/defaults", "默认设置",
+            Paragraph("插件已默认启用一组常用功能。"),
+            Paragraph("接下来的页面会介绍常用功能的设置。"),
+            Paragraph("将鼠标悬停在“？”图标上，可查看各项设置的说明。")
         );
     }
 }

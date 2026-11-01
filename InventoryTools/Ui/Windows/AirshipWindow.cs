@@ -40,7 +40,7 @@ namespace InventoryTools.Ui
             else
             {
                 Key = "aepid_unknown";
-                WindowName = "Unknown Airship Point";
+                WindowName = "未知飞艇探索点";
                 _drops = new List<ItemRow>();
             }
         }
@@ -58,13 +58,13 @@ namespace InventoryTools.Ui
         {
             if (AirshipExplorationPoint == null)
             {
-                ImGui.TextUnformatted("Airship Exploration Point with the ID " + _airshipExplorationPointId + " could not be found.");
+                ImGui.TextUnformatted("找不到 ID 为 " + _airshipExplorationPointId + " 的飞艇探索点。" );
             }
             else
             {
                 ImGui.TextUnformatted(AirshipExplorationPoint.Base.NameShort.ExtractText());
-                ImGui.TextUnformatted("Unlocked Via: " + AirshipExplorationPoint.Unlock?.Base.NameShort.ExtractText() ?? "N/A");
-                ImGui.TextUnformatted("Rank Required: " + AirshipExplorationPoint.Base.RankReq);
+                ImGui.TextUnformatted("解锁方式：" + AirshipExplorationPoint.Unlock?.Base.NameShort.ExtractText() ?? "未知");
+                ImGui.TextUnformatted("要求等级：" + AirshipExplorationPoint.Base.RankReq);
                 ;
                 var itemIcon = ImGuiService.GetIconTexture(Icons.AirshipIcon);
                 ImGui.Image(itemIcon.Handle, new Vector2(100, 100) * ImGui.GetIO().FontGlobalScale);

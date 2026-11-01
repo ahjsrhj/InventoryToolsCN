@@ -108,14 +108,14 @@ namespace InventoryTools.Ui
         {
             if (ContentFinderCondition == null)
             {
-                ImGui.TextUnformatted("Dungeon with the ID " + _contentFinderConditionId + " could not be found.");
+                ImGui.TextUnformatted("找不到 ID 为 " + _contentFinderConditionId + " 的副本。" );
             }
             else
             {
                 ImGui.TextUnformatted(ContentFinderCondition.Base.Name.ExtractText());
-                ImGui.TextUnformatted(ContentFinderCondition.Base.ContentType.ValueNullable?.Name.ToString() ?? "Unknown Content Type");
-                ImGui.TextUnformatted("Level Required: " + ContentFinderCondition.Base.ClassJobLevelRequired);
-                ImGui.TextUnformatted("Item Level Required: " + ContentFinderCondition.Base.ItemLevelRequired);
+                ImGui.TextUnformatted(ContentFinderCondition.Base.ContentType.ValueNullable?.Name.ToString() ?? "未知副本类型");
+                ImGui.TextUnformatted("要求等级：" + ContentFinderCondition.Base.ClassJobLevelRequired);
+                ImGui.TextUnformatted("要求物品等级：" + ContentFinderCondition.Base.ItemLevelRequired);
                 ;
                 var itemIcon = ImGuiService.GetIconTexture((int)(ContentFinderCondition.Base.ContentType.ValueNullable?.IconDutyFinder ?? Icons.DutyIcon));
                 ImGui.Image(itemIcon.Handle, new Vector2(100, 100) * ImGui.GetIO().FontGlobalScale);
@@ -129,7 +129,7 @@ namespace InventoryTools.Ui
                 foreach (var dungeonBoss in DungeonBosses)
                 {
                     if (ImGui.CollapsingHeader(_bNpcNameSheet.GetRowOrDefault(dungeonBoss.BNpcNameId)?.Base.Singular.ExtractText() + " - Fight " + (dungeonBoss.FightNo + 1) ??
-                            "Unknown Boss",
+                            "未知首领",
                             ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                     {
                         if (DungeonBossChests.ContainsKey(dungeonBoss.FightNo))
@@ -137,7 +137,7 @@ namespace InventoryTools.Ui
                             var chests = DungeonBossChests[dungeonBoss.FightNo];
                             foreach (var chest in chests.GroupBy(c => c.CofferNo))
                             {
-                                if (ImGui.CollapsingHeader("Coffer " + (chest.Key + 1),
+                                if (ImGui.CollapsingHeader("宝箱 " + (chest.Key + 1),
                                         ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                                 {
                                     ImGuiStylePtr style = ImGui.GetStyle();

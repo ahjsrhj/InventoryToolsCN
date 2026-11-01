@@ -41,7 +41,7 @@ public class CompendiumTypesWindow : GenericWindow
         var style = ImGui.GetStyle();
 
         ImGui.SetNextItemWidth(-1);
-        ImGui.InputTextWithHint("##compendium_search", "Search compendium...", ref _search, 100);
+        ImGui.InputTextWithHint("##compendium_search", "搜索图鉴……", ref _search, 100);
 
         ImGui.Spacing();
         ImGui.Separator();

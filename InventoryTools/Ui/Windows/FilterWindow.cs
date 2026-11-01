@@ -201,7 +201,7 @@ namespace InventoryTools.Ui
                         itemTable.ClearFilters();
                     }
 
-                    ImGuiUtil.HoverTooltip("Clear the current search.");
+                    ImGuiUtil.HoverTooltip("清除当前搜索条件。");
 
                 }
             }
@@ -244,17 +244,17 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    ImGuiUtil.HoverTooltip("Refresh Market Prices");
+                    ImGuiUtil.HoverTooltip("刷新市场价格");
                     ImGui.SameLine();
                     ImGuiService.CenterElement(24 * ImGui.GetIO().FontGlobalScale);
                     var csvCursorX = ImGui.GetCursorPosX();
                     if (ImGuiService.DrawIconButton(_font, FontAwesomeIcon.FileExport, ref csvCursorX))
                     {
-                        _fileDialogManager.SaveFileDialog("Save to csv", "*.csv", "export.csv", ".csv",
+                        _fileDialogManager.SaveFileDialog("保存为 CSV", "*.csv", "export.csv", ".csv",
                             (b, s) => { SaveCallback(itemTable, b, s); }, null, true);
                     }
 
-                    ImGuiUtil.HoverTooltip("Export to CSV");
+                    ImGuiUtil.HoverTooltip("导出为 CSV");
                     if (filterConfiguration.FilterType == FilterType.CraftFilter &&
                         _gameUiManager.IsWindowVisible(
                             CriticalCommonLib.Services.Ui.WindowName.SubmarinePartsMenu))
@@ -263,7 +263,7 @@ namespace InventoryTools.Ui
                         if (subMarinePartsMenu != null)
                         {
                             ImGui.SameLine();
-                            if (ImGui.Button("Add Company Craft to List"))
+                            if (ImGui.Button("将部队制作添加到清单"))
                             {
                                 var subAddon = (SubmarinePartsMenuAddon*)subMarinePartsMenu;
                                 for (byte i = 0; i < 6; i++)
@@ -287,7 +287,7 @@ namespace InventoryTools.Ui
                     }
 
                     ImGui.SameLine();
-                    ImGuiService.VerticalCenter("Pending Market Requests: " + _universalis.QueuedCount);
+                    ImGuiService.VerticalCenter("待处理的市场查询：" + _universalis.QueuedCount);
                     if (filterConfiguration.FilterType == FilterType.CraftFilter)
                     {
                         ImGui.SameLine();
@@ -322,7 +322,7 @@ namespace InventoryTools.Ui
                         MediatorService.Publish(new ToggleGenericWindowMessage(typeof(ConfigurationWindow)));
                     }
 
-                    ImGuiUtil.HoverTooltip("Open the configuration window.");
+                        ImGuiUtil.HoverTooltip("打开设置窗口。");
 
                     ImGui.SetCursorPosY(0);
                     width -= 30 * ImGui.GetIO().FontGlobalScale;
@@ -332,7 +332,7 @@ namespace InventoryTools.Ui
                         MediatorService.Publish(new ToggleGenericWindowMessage(typeof(FiltersWindow)));
                     }
 
-                    ImGuiUtil.HoverTooltip("Open the items window.");
+                    ImGuiUtil.HoverTooltip("打开物品窗口。");
 
                     ImGui.SetCursorPosY(0);
                     width -= 30 * ImGui.GetIO().FontGlobalScale;
@@ -342,7 +342,7 @@ namespace InventoryTools.Ui
                         MediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftsWindow)));
                     }
 
-                    ImGuiUtil.HoverTooltip("Open the craft window.");
+                    ImGuiUtil.HoverTooltip("打开制作窗口。");
 
                     var totalItems =  itemTable.RenderSearchResults.Count + " items";
 

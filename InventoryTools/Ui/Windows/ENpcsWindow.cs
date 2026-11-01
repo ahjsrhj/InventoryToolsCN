@@ -89,7 +89,7 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
                     ImGui.TextUnformatted(ex.Base.Singular.ExtractText() ?? "");
                 }
             },
-            new("Locations", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
+            new("地点", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
             {
                 Draw = (ex, contentTypeId) =>
                 {
@@ -107,7 +107,7 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
                         if (ImGui.IsItemHovered())
                         {
                             using var tt = ImRaii.Tooltip();
-                            ImGui.TextUnformatted((position.PlaceName.ValueNullable?.Name.ExtractText() ?? "Unknown") + " - " +
+                            ImGui.TextUnformatted((position.PlaceName.ValueNullable?.Name.ExtractText() ?? "未知") + " - " +
                                                   position.MapX +
                                                   " : " + position.MapY);
                         }
@@ -117,7 +117,7 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
 
                 }
             },
-            new("Is Vendor", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
+            new("是否为商人", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
             {
                 FilterBool = (s, exes) =>
                 {
@@ -133,11 +133,11 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
                 {
                     if (ex.ENpcBase.IsVendor)
                     {
-                        ImGui.Text("Yes");
+                        ImGui.Text("是");
                     }
                     else
                     {
-                        ImGui.Text("No");
+                        ImGui.Text("否");
                     }
                 }
             },

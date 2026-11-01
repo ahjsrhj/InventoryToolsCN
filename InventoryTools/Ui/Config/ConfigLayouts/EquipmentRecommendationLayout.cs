@@ -7,11 +7,11 @@ public class EquipmentRecommendationLayout : ConfigLayout
 {
     public override PageLayout Build()
     {
-        return Page("equipment-recommendation", "Equipment Recommendation",
-            Paragraph("Compares what you are wearing against what you could be wearing and suggests upgrades. These are the defaults the recommendation screen opens with."),
-            Section("Defaults",
-                Setting<EquipmentSuggestModeSetting>("Recommend by"),
-                Setting<EquipmentSuggestViewModeSetting>("Layout"))
+        return Page("equipment-recommendation", "装备推荐",
+            Paragraph("对比当前装备与可用装备，并推荐更合适的搭配。以下为打开推荐界面时使用的默认选项。"),
+            Section("默认选项",
+                Setting<EquipmentSuggestModeSetting>("推荐模式"),
+                Setting<EquipmentSuggestViewModeSetting>("布局"))
         );
     }
 }

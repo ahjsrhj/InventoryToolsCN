@@ -7,12 +7,12 @@ public class ItemIconsLayout : ConfigLayout
 {
     public override PageLayout Build()
     {
-        return Page("item-icons", "Item Icons",
-            Paragraph("Where an item can be acquired or used in several similar ways, the icons for those can be collapsed into a single grouped icon. Each source and use below can override that default."),
-            Section("Sources",
+        return Page("item-icons", "物品图标",
+            Paragraph("当物品有多种相似的获取或用途途径时，可将对应图标合并显示。下方可分别调整各类来源和用途的默认分组方式。"),
+            Section("获取途径",
                 Scrollable("sourceIconGrouping", 320,
                     Setting<SourceIconGroupingSetting>())),
-            Section("Uses",
+            Section("用途",
                 Scrollable("useIconGrouping", 200,
                     Setting<UseIconGroupingSetting>()))
         );

@@ -40,18 +40,18 @@ public class TeamCraftImportWindow : GenericWindow
 
     public override void DrawWindow()
     {
-        ImGui.Text("Import to Craft List: ");
+        ImGui.Text("导入到制作清单：");
         ImGui.SameLine();
         ImGuiService.HelpMarker("Guide to importing lists.\r\n\r\n" +
-                                "Step 1. Open a list on Teamcraft with the items you wish to craft.\r\n\r\n" +
-                                "Step 2. Find the 'Items' \"Copy as Text\" button. You only want to copy the output items.\r\n\r\n" +
-                                "Step 3. Paste into the text box below in this window.\r\n\r\n" +
-                                "Step 4. Click import.");
-        ImGui.Text("Paste text here");
+                                "第 1 步：在 Teamcraft 中打开包含目标制作物品的清单。\r\n\r\n" +
+                                "第 2 步：找到“物品”中的“复制为文本”按钮，只需复制成品。\r\n\r\n" +
+                                "第 3 步：将文本粘贴到此窗口下方的文本框。\r\n\r\n" +
+                                "第 4 步：点击“导入”。");
+        ImGui.Text("在此粘贴文本");
         ImGui.InputTextMultiline("###FinalItems", ref _importListItems, 10000000, new Vector2(ImGui.GetContentRegionAvail().X, 100));
 
 
-        if (ImGui.Button("Import"))
+        if (ImGui.Button("导入"))
         {
             var importedList = _importExportService.FromTCString(_importListItems ?? "");
             if (importedList is not null)
@@ -62,7 +62,7 @@ public class TeamCraftImportWindow : GenericWindow
 
         }
         ImGui.SameLine();
-        if (ImGui.Button("Cancel"))
+        if (ImGui.Button("取消"))
         {
             Close();
         }

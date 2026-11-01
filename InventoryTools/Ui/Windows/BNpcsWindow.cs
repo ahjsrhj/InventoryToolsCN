@@ -174,7 +174,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
                             if (ImGui.IsItemHovered())
                             {
                                 using var tt = ImRaii.Tooltip();
-                                ImGui.TextUnformatted((territory.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? "Unknown") + " - " +
+                            ImGui.TextUnformatted((territory.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? "未知") + " - " +
                                                       position.Position.X +
                                                       " : " + position.Position.Y);
                             }

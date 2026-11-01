@@ -6,22 +6,22 @@ public class GeneralHelpLayout : ContentLayout
 {
     public override PageLayout Build()
     {
-        return Page("help/general", "General",
-            Paragraph("Allagan Tools is a multi-purpose plugin providing 3 primary features: tracking and displaying your inventory data, helping you plan crafts, and providing information about items."),
-            Paragraph("If you've used Teamcraft or Garland Tools, it takes some inspiration from both."),
-            Section("Inventory tracking",
-                Paragraph("The plugin will do its best to keep track of your inventories. Some inventories are only cached when they are first accessed. If you aren't seeing your retainer, free company, glamour chest and so on, please be sure to view them first otherwise the plugin cannot cache them."),
-                Paragraph("Once the plugin knows about the items, you can create lists to narrow down searches for specific items, help you sort them, and a myriad of other things.")),
-            Section("Craft planning",
-                Paragraph("The plugin has a dedicated crafts window that lets you create lists of items you want to craft. It'll create a plan that breaks each item down into its individual parts and tell you what you're missing, where everything you need is, and where to find or buy anything you don't have."),
-                Paragraph("If you've ever used Teamcraft, you should be right at home.")),
-            Section("Item information",
-                Paragraph("The plugin has a fairly comprehensive database of information about each item. If you've used Garland Tools, the information provided is very similar. Clicking an item's icon within the plugin will always open the item's information window.")),
-            Section("Highlighting",
-                Paragraph("When using either an item list or a craft list, you can toggle highlighting. This will highlight the items in game so that you can see exactly where they are. When the plugin's windows are active, hit the 'Highlight' checkbox to activate highlighting for that list. To trigger this with a macro, see the commands section of help and toggle 'background' highlighting.")),
-            Section("More",
-                Paragraph("This is a very basic guide. For more information please see the wiki."),
-                Link("Open Wiki", "https://github.com/Critical-Impact/InventoryTools/wiki/1.-Overview"))
+        return Page("help/general", "常规",
+            Paragraph("Allagan Tools 是一款多功能插件，主要用于追踪和查看库存、规划制作，以及查询物品信息。"),
+            Paragraph("如果你使用过 Teamcraft 或 Garland Tools，会发现本插件也借鉴了其中的一些设计。"),
+            Section("库存追踪",
+                Paragraph("插件会尽力记录你的库存。有些库存只有在首次打开后才能缓存。如果看不到雇员、部队储物柜或投影台等内容，请先在游戏中打开对应库存。"),
+                Paragraph("插件记录物品后，你可以创建清单来搜索特定物品、整理物品或使用其他功能。")),
+            Section("制作规划",
+                Paragraph("制作窗口可创建目标物品清单，并将每项配方拆解为所需材料。你可以查看缺少什么、物品存放在哪里，以及如何采集或购买缺少的材料。"),
+                Paragraph("如果使用过 Teamcraft，上手会很轻松。")),
+            Section("物品信息",
+                Paragraph("插件内置了较完整的物品资料库。点击插件中任意物品图标，即可打开物品详情窗口。")),
+            Section("高亮显示",
+                Paragraph("使用物品清单或制作清单时，可以启用高亮，在游戏中快速定位对应物品。插件窗口处于活动状态时，勾选“高亮”即可启用。若要通过宏控制，请参阅帮助中的指令章节，并使用“背景”高亮选项。")),
+            Section("更多信息",
+                Paragraph("本指南仅介绍基础功能，更多信息请参阅 Wiki。"),
+                Link("打开 Wiki", "https://github.com/Critical-Impact/InventoryTools/wiki/1.-Overview"))
         );
     }
 }
