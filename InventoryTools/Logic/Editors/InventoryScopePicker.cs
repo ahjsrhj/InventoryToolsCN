@@ -54,7 +54,7 @@ public class InventoryScopePicker
 
         if (scopeName == "")
         {
-            scopeName = "All";
+            scopeName = "全部";
         }
 
         if (scope.Invert)
@@ -146,7 +146,7 @@ public class InventoryScopePicker
         {
             if (combo)
             {
-                ImGui.Text("Inventory Scope Editor");
+                ImGui.Text("库存范围编辑器");
                 using(var child = ImRaii.Child("selected", new Vector2(200, 0) * ImGui.GetIO().FontGlobalScale , true, ImGuiWindowFlags.NoScrollbar))
                 {
                     if (child)
@@ -157,7 +157,7 @@ public class InventoryScopePicker
                             {
                                 if (searchScopes.Count == 0)
                                 {
-                                    ImGui.TextWrapped("No scopes defined yet. Press add to start.");
+                                ImGui.TextWrapped("尚未定义任何范围。点击“添加”开始设置。");
                                 }
 
                                 for (var index = 0; index < searchScopes.Count; index++)
@@ -199,14 +199,14 @@ public class InventoryScopePicker
                         {
                             if (commandBar)
                             {
-                                if (ImGui.Button("Add"))
+                                if (ImGui.Button("添加"))
                                 {
                                     _selectedScope = new InventorySearchScope();
                                     searchScopes.Add(_selectedScope);
                                     changed = true;
                                 }
                                 ImGui.SameLine();
-                                if (ImGui.Button("Save"))
+                                if (ImGui.Button("保存"))
                                 {
                                     ImGui.CloseCurrentPopup();
                                 }
@@ -220,9 +220,9 @@ public class InventoryScopePicker
                 {
                     if (_selectedScope == null)
                     {
-                        ImGui.TextWrapped("The inventory scope editor allows you define which inventories you want to search across.");
-                        ImGui.TextWrapped("By default, every inventory Allagan Tools knows about is searched.");
-                        ImGui.TextWrapped("By providing a set of scopes, you are narrowing down which inventories are displayed.");
+                        ImGui.TextWrapped("你可以在此指定要检索的库存范围。");
+                        ImGui.TextWrapped("默认会检索 Allagan Tools 可识别的所有库存。");
+                        ImGui.TextWrapped("设置范围后，只会显示符合条件的库存。");
                     }
                     else
                     {
@@ -235,9 +235,9 @@ public class InventoryScopePicker
                                     var isCharacter = _selectedScope.CharacterId != null;
                                     var isWorld = _selectedScope.WorldId != null;
                                     var isActiveCharacter = _selectedScope.ActiveCharacter != null;
-                                    ImGui.Text("Search Scope:");
+                                    ImGui.Text("检索范围：");
                                     ImGui.Separator();
-                                    if (ImGui.RadioButton("All",!isCharacter && !isWorld && !isActiveCharacter))
+                                    if (ImGui.RadioButton("全部",!isCharacter && !isWorld && !isActiveCharacter))
                                     {
                                         _selectedScope.Reset();
                                     }
@@ -245,7 +245,7 @@ public class InventoryScopePicker
                                     _imGuiService.HelpMarker("Match against all inventories");
                                     ImGui.NewLine();
 
-                                    if (ImGui.RadioButton("Character",isCharacter))
+                                    if (ImGui.RadioButton("指定角色",isCharacter))
                                     {
                                         _selectedScope.Reset();
                                         _selectedScope.CharacterId = 0;
@@ -280,7 +280,7 @@ public class InventoryScopePicker
                                         }
                                     }
                                     ImGui.NewLine();
-                                    if (ImGui.RadioButton("Active Character",isActiveCharacter))
+                                    if (ImGui.RadioButton("当前角色",isActiveCharacter))
                                     {
                                         _selectedScope.Reset();
                                         _selectedScope.ActiveCharacter = true;
@@ -289,7 +289,7 @@ public class InventoryScopePicker
                                     _imGuiService.HelpMarker("Match against the currently logged in character. This includes all retainers/free companies/etc owned by the character. Use categories or character types to filter down further.");
                                     ImGui.NewLine();
 
-                                    if (ImGui.RadioButton("World",isWorld))
+                                    if (ImGui.RadioButton("世界",isWorld))
                                     {
                                         _selectedScope.Reset();
                                         _selectedScope.WorldId = 0;
@@ -429,7 +429,7 @@ public class InventoryScopePicker
                                     ImGui.Separator();
                                     ImGui.NewLine();
                                     var invert = _selectedScope.Invert;
-                                    if (ImGui.Checkbox("Invert", ref invert))
+                                    if (ImGui.Checkbox("反选", ref invert))
                                     {
                                         _selectedScope.Invert = invert;
                                         changed = true;
@@ -444,13 +444,13 @@ public class InventoryScopePicker
                             {
                                 if (commandBar)
                                 {
-                                    if (ImGui.Button("Save"))
+                                    if (ImGui.Button("保存"))
                                     {
                                         _selectedScope = null;
                                         changed = true;
                                     }
                                     ImGui.SameLine();
-                                    if (ImGui.Button("Delete"))
+                                    if (ImGui.Button("删除"))
                                     {
                                         searchScopes.Remove(_selectedScope);
                                         _selectedScope = null;

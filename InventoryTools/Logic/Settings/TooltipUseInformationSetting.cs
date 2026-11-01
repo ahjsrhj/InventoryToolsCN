@@ -21,7 +21,7 @@ public class TooltipUseInformationEnabledSetting : GenericBooleanSetting
     public TooltipUseInformationEnabledSetting(ILogger<TooltipUseInformationEnabledSetting> logger, ImGuiService imGuiService) : base("TooltipUseInformationEnabled", "Use Information Enabled", "Should use information be shown in the tooltip? For example, the item is used in a recipe or as currency at a shop, etc", true, "1.11.0.11", logger, imGuiService)
     {
     }
-    public override string WizardName { get; } = "Show Use Information";
+    public override string WizardName { get; } = "显示用途信息";
 }
 
 public class TooltipUseInformationModifierSetting : GenericEnumChoiceSetting<TooltipSourceModifier>
@@ -255,7 +255,7 @@ public class TooltipUseInformationSetting : Setting<Dictionary<ItemInfoType, Too
     }
 
     public override string Key { get; set; } = "TooltipUseInformation";
-    public override string Name { get; set; } = "Use Information Configuration";
+    public override string Name { get; set; } = "用途信息配置";
 
     public override string HelpText { get; set; } =
         "If the use information tooltip is enabled, how should the various uses be ordered/displayed/etc?";

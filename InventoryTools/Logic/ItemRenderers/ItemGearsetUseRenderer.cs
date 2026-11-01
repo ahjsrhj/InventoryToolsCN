@@ -36,7 +36,7 @@ public class ItemGearsetUseRenderer : ItemInfoRenderer<ItemGearsetSource>
         var asSource = AsSource(source);
         if (asSource.SetItems.Count > 1)
         {
-            ImGui.Text("Set Name: " +  asSource.Gearset.Name);
+            ImGui.Text("套装名称：" +  asSource.Gearset.Name);
             this.DrawItems("Set Items:", asSource.RelatedItems.First().Value);
         }
     };

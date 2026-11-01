@@ -24,8 +24,8 @@ public class ItemPvpSeriesSourceRenderer : ItemInfoRenderer<ItemPVPSeriesSource>
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Reward in PVP Series " + asSource.PvpSeries.Value.RowId);
-        ImGui.Text("Unlocks at level " + asSource.Level);
+        ImGui.Text("PvP 系列 " + asSource.PvpSeries.Value.RowId + " 奖励");
+        ImGui.Text("于等级 " + asSource.Level + " 解锁");
     };
 
     public override Func<ItemSource, string> GetName => source =>

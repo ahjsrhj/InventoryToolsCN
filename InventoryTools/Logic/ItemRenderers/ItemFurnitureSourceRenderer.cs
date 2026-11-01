@@ -27,8 +27,8 @@ public class ItemFurnitureSourceRenderer : ItemInfoRenderer<ItemFurnitureSource>
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text($"Category: {asSource.FurnitureCatalogItemList.ValueNullable?.Category.Value.Category.ExtractText() ?? "N/A"}");
-        ImGui.Text($"Patch Added: {asSource.FurnitureCatalogItemList.ValueNullable?.Patch.ToString() ?? "N/A"}");
+        ImGui.Text($"分类：{asSource.FurnitureCatalogItemList.ValueNullable?.Category.Value.Category.ExtractText() ?? "不适用"}");
+        ImGui.Text($"加入版本：{asSource.FurnitureCatalogItemList.ValueNullable?.Patch.ToString() ?? "不适用"}");
     };
 
     public override Func<ItemSource, string> GetName => source =>
@@ -40,6 +40,6 @@ public class ItemFurnitureSourceRenderer : ItemInfoRenderer<ItemFurnitureSource>
     public override Func<ItemSource, string> GetDescription => source =>
     {
         var asSource = AsSource(source);
-        return "Can be placed inside a house.";
+        return "可放置于房屋内。";
     };
 }

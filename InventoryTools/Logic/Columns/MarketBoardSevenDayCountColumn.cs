@@ -104,7 +104,7 @@ namespace InventoryTools.Logic.Columns
             set { }
         }
 
-        public override string RenderName => "MB " + _configuration.MarketSaleHistoryLimit + " Day Sales";
+    public override string RenderName => "市场 " + _configuration.MarketSaleHistoryLimit + " 日成交";
         public override string HelpText
         {
             get =>

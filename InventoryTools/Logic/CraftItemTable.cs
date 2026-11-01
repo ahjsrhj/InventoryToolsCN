@@ -87,10 +87,10 @@ namespace InventoryTools.Logic
                         var groupedCrafts = CraftGroups;
                         if (groupedCrafts.Count == 0)
                         {
-                            using var tabItem = ImRaii.TabItem("No Items");
+                            using var tabItem = ImRaii.TabItem("暂无物品");
                             if (!tabItem.Success) return messages;
                             ImGui.TextWrapped(
-                                "No items have been added to the list. Add items via the search menu button at the top right of the screen or by right clicking on an item anywhere within the plugin.");
+                                "清单中还没有物品。点击屏幕右上角的搜索菜单按钮，或在插件内任意物品上单击右键，即可添加物品。");
                         }
                         else
                         {

@@ -18,10 +18,10 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "HighlightEmptyDestination";
-        public override string Name { get; set; } = "Highlight Empty Destination?";
+        public override string Name { get; set; } = "高亮空目标位置？";
 
         public override string HelpText { get; set; } =
-            "When highlighting destinations should empty spots be highlighted or only items that already exist in the destination?";
+            "高亮目标位置时，是否同时高亮空位，还是仅高亮目标位置中已有的物品？";
         
         public override string Version => "1.7.0.0";
 

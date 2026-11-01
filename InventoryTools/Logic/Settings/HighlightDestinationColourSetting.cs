@@ -19,8 +19,8 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "DestinationHighlightColour";
-        public override string Name { get; set; } = "Destination Highlight Colour";
-        public override string HelpText { get; set; } = "The color to set any items in the destination that match your source filter(assuming highlight destination duplicates is on).";
+        public override string Name { get; set; } = "目标高亮颜色";
+        public override string HelpText { get; set; } = "设置目标位置中符合来源筛选的物品颜色（需启用目标重复物品高亮）。";
         public override string Version => "1.7.0.0";
 
         public HighlightDestinationColourSetting(ILogger<HighlightDestinationColourSetting> logger, ImGuiService imGuiService) : base(logger, imGuiService)

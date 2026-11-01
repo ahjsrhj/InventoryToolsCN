@@ -40,7 +40,7 @@ public class CraftRetrieveGroupFilter : ChoiceFilter<RetrieveGroupSetting>
     }
 
     public override string Key { get; set; } = "CraftRetrieveGroupFilter";
-    public override string Name { get; set; } = "Group Retrieval Items By";
+    public override string Name { get; set; } = "待取回物品分组方式";
 
     public override string HelpText { get; set; } =
         "Should the items you need to retrieve be grouped?";

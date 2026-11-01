@@ -28,11 +28,11 @@ public class ItemJobSoulCrystalUseRenderer : ItemInfoRenderer<ItemJobSoulCrystal
         var asSource = AsSource(source);
         if (asSource.ParentClassJob != null)
         {
-            ImGui.Text("Converts " + asSource.ParentClassJob.Base.Name.ExtractText() + " into " + asSource.ClassJob.Base.Name.ExtractText());
+            ImGui.Text("将" + asSource.ParentClassJob.Base.Name.ExtractText() + "转职为" + asSource.ClassJob.Base.Name.ExtractText());
         }
         else
         {
-            ImGui.Text("Provides the " + asSource.ClassJob.Base.Name.ExtractText() + " job");
+            ImGui.Text("解锁" + asSource.ClassJob.Base.Name.ExtractText() + "职业");
         }
     };
 

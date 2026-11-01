@@ -31,7 +31,7 @@ namespace InventoryTools.Logic.Columns.Abstract
         {
             get
             {
-                return "N/A";
+                return "不适用";
             }
         }
         public override List<MessageBase>? Draw(FilterConfiguration configuration,

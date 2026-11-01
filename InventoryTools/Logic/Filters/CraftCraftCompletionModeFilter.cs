@@ -27,7 +27,7 @@ public class CraftCraftCompletionModeFilter : ChoiceFilter<CraftCompletionMode>
     }
 
     public override string Key { get; set; } = "HideCompletedMode";
-    public override string Name { get; set; } = "Craft Completion Mode";
+    public override string Name { get; set; } = "制作完成模式";
 
     public override string HelpText { get; set; } =
         "When an output reaches 0, should it be deleted or just be hidden(when Hide Completed is checked).";
@@ -59,9 +59,9 @@ public class CraftCraftCompletionModeFilter : ChoiceFilter<CraftCompletionMode>
         switch (choice)
         {
             case(CraftCompletionMode.Delete):
-                return "Delete";
+                return "删除";
             case(CraftCompletionMode.DoNothing):
-                return "Do Nothing";
+                return "不执行操作";
         }
 
         return choice.ToString();

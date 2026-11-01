@@ -204,7 +204,7 @@ namespace InventoryTools.Ui
                 Sources = [];
                 Uses = [];
                 OwnedItems = new List<CriticalCommonLib.Models.InventoryItem>();
-                WindowName = "Invalid Item";
+                WindowName = "無效物品";
                 Key = "item_unknown";
             }
         }
@@ -269,7 +269,7 @@ namespace InventoryTools.Ui
 
         private List<CriticalCommonLib.Models.InventoryItem> OwnedItems { get; set; }
 
-        public override string GenericName { get; } = "Item";
+        public override string GenericName { get; } = "物品";
         public override bool DestroyOnClose => true;
         public override void DrawWindow()
         {
@@ -535,7 +535,7 @@ namespace InventoryTools.Ui
             }
             if (ImGui.CollapsingHeader("获取途径（" + Item.Sources.Count + "）", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
-                var messages = _itemInfoRenderService.DrawItemSourceIcons("Sources", new Vector2(32, 32) * ImGui.GetIO().FontGlobalScale, Item.Sources.ToList());
+                var messages = _itemInfoRenderService.DrawItemSourceIcons("获取来源", new Vector2(32, 32) * ImGui.GetIO().FontGlobalScale, Item.Sources.ToList());
                 MediatorService.Publish(messages);
             }
         }
@@ -1146,7 +1146,7 @@ namespace InventoryTools.Ui
 
             if (ImGui.CollapsingHeader("用途（" + Item.Uses.Count + "）", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
-                var messages = _itemInfoRenderService.DrawItemUseIcons("Uses", new Vector2(32, 32) * ImGui.GetIO().FontGlobalScale, Item.Uses.ToList());
+                var messages = _itemInfoRenderService.DrawItemUseIcons("用途", new Vector2(32, 32) * ImGui.GetIO().FontGlobalScale, Item.Uses.ToList());
                 MediatorService.Publish(messages);
             }
         }

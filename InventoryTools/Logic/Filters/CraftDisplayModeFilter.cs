@@ -26,10 +26,10 @@ public class CraftDisplayModeFilter : ChoiceFilter<CraftDisplayMode>
     }
 
     public override string Key { get; set; } = "CraftDisplayMode";
-    public override string Name { get; set; } = "Craft Display Mode";
+    public override string Name { get; set; } = "制作清单显示方式";
 
     public override string HelpText { get; set; } =
-        "Should the craft items be placed in a single table or grouped into multiple tabs.";
+        "将制作物品显示在同一张表格中，还是按分组拆分为多个标签页。";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Display;
     public override CraftDisplayMode DefaultValue { get; set; } = CraftDisplayMode.SingleTable;
@@ -58,9 +58,9 @@ public class CraftDisplayModeFilter : ChoiceFilter<CraftDisplayMode>
         switch (choice)
         {
             case CraftDisplayMode.Tabs:
-                return "Tabs";
+                return "标签页";
             case CraftDisplayMode.SingleTable:
-                return "Single Table";
+                return "单表格";
         }
 
         return choice.ToString();

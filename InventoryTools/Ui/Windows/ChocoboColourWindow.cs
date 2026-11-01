@@ -476,8 +476,8 @@ namespace InventoryTools.Ui
                     using (ImRaii.Tooltip())
                     {
                         ImGui.TextUnformatted("喂给陆行鸟可重置其颜色。" );
-                        ImGui.TextUnformatted("back to Desert Yellow (default),");
-                        ImGui.TextUnformatted("so you can begin recolouring again.");
+                        ImGui.TextUnformatted("恢复为默认的沙漠黄，");
+                        ImGui.TextUnformatted("之后即可重新开始染色。");
                     }
                 }
 

@@ -28,10 +28,10 @@ public class ItemGlamourReadySetItemSourceRenderer : ItemInfoRenderer<ItemGlamou
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Transforms into: " + asSource.ConvertedItem.NameString);
+        ImGui.Text("可幻化为：" + asSource.ConvertedItem.NameString);
         if (asSource.SetItems.Count > 1)
         {
-            ImGui.Text("Set Items:");
+            ImGui.Text("套装物品：");
             using (ImRaii.PushIndent())
             {
                 foreach (var item in asSource.SetItems)

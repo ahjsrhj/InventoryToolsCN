@@ -25,7 +25,7 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "OpenGatheringLogHotKey";
-        public override string Name { get; set; } = "Open Gathering Log Hotkey";
+        public override string Name { get; set; } = "打开采集笔记快捷键";
 
         public override string HelpText { get; set; } =
             "The hotkey to open the gathering log for an item when hovering it.";

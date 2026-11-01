@@ -97,12 +97,12 @@ namespace InventoryTools.Logic.Columns
                             var pricing = _marketCache.GetPricing(searchResult.Item.RowId, selectedWorldId, false);
                             if (pricing is { recentHistory: null, listings: null })
                             {
-                                ImGui.Text("No data available");
+                                ImGui.Text("暂无数据");
                             }
 
                             if (pricing is { listings: not null })
                             {
-                                ImGui.Text("Listings: ");
+                                ImGui.Text("在售：");
                                 ImGui.Separator();
 
                                 foreach (var price in pricing.listings)
@@ -114,7 +114,7 @@ namespace InventoryTools.Logic.Columns
 
                             if (pricing is { recentHistory: not null })
                             {
-                                ImGui.Text("History: ");
+                                ImGui.Text("历史：");
                                 ImGui.Separator();
 
                                 foreach (var price in pricing.recentHistory)
@@ -158,8 +158,8 @@ namespace InventoryTools.Logic.Columns
             return (Loading, Loading);
         }
 
-        public override string Name { get; set; } = "Market Board Average Price NQ/HQ";
-        public override string RenderName => "MB Avg. Price NQ/HQ";
+        public override string Name { get; set; } = "市场均价（普通/高品质）";
+        public override string RenderName => "市场均价 普/高";
         public override string HelpText { get; set; } =
             "Shows the average price of both the NQ and HQ form of the item. If no world is selected, your home world is used. This data is sourced from universalis.";
         public override float Width { get; set; } = 200.0f;

@@ -63,7 +63,7 @@ namespace InventoryTools.Logic.Columns
                     configuration.CraftList.RemoveCraftItem(searchResult.CraftItem.ItemId);
                     configuration.NeedsRefresh = true;
                 }
-                OtterGui.ImGuiUtil.HoverTooltip("Delete item");
+                OtterGui.ImGuiUtil.HoverTooltip("删除物品");
 
             }
 
@@ -95,7 +95,7 @@ namespace InventoryTools.Logic.Columns
                 }
                 else
                 {
-                    ImGui.Text("N/A");
+                    ImGui.Text("不适用");
                 }
 
                 var craftPrices = searchResult.CraftItem.CraftPrices;
@@ -120,11 +120,11 @@ namespace InventoryTools.Logic.Columns
                                 totalAvailable += price.Left;
                             }
 
-                            ImGui.Text("Available: " + totalAvailable);
+                            ImGui.Text("可用：" + totalAvailable);
 
                             if (searchResult.CraftItem.MarketAvailable != searchResult.CraftItem.QuantityNeeded)
                             {
-                                ImGui.Text("Missing: " + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
+                                ImGui.Text("缺少：" + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
                             }
                         }
                     }
@@ -141,7 +141,7 @@ namespace InventoryTools.Logic.Columns
                 if (ImGui.IsItemHovered(ImGuiHoveredFlags.None))
                 {
                     using var tt = ImRaii.Tooltip();
-                    ImGui.Text("Missing Ingredients: ");
+                    ImGui.Text("缺少材料：");
                     foreach (var missingIngredient in searchResult.CraftItem.MissingIngredients)
                     {
                         var itemId = missingIngredient.Key.Item1;
@@ -159,8 +159,8 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
 
-        public override string Name { get; set; } = "Next Step in Craft";
-        public override string RenderName => "Next Step";
+        public override string Name { get; set; } = "下一制作步骤";
+        public override string RenderName => "下一步";
 
         public override float Width { get; set; } = 200;
         public override bool? CraftOnly => true;

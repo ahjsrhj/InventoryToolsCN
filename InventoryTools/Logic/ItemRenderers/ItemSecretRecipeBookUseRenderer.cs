@@ -32,7 +32,7 @@ public class ItemSecretRecipeBookUseRenderer : ItemInfoRenderer<ItemSecretRecipe
         var bookName = asSource.SecretRecipeBook.ValueNullable?.Name.ExtractText();
         if (!string.IsNullOrEmpty(bookName))
         {
-            ImGui.Text("Unlocks: " + bookName);
+            ImGui.Text("解锁：" + bookName);
         }
 
         if (asSource.RelatedItems.Count > 0)

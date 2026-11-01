@@ -11,8 +11,8 @@ public class CraftDefaultHQRequiredFilter : BooleanFilter
 {
     public override bool? DefaultValue { get; set; } = false;
     public override string Key { get; set; } = "CraftDefaultHqRequired";
-    public override string Name { get; set; } = "HQ Required";
-    public override string HelpText { get; set; } = "Should each item in the list require a HQ version of the item(if applicable)?";
+    public override string Name { get; set; } = "要求高品质";
+    public override string HelpText { get; set; } = "清单中的物品是否需要高品质版本（若适用）？";
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Settings;
     public override FilterType AvailableIn { get; set; } = FilterType.CraftFilter;
     public override bool? FilterItem(FilterConfiguration configuration, InventoryItem item)
@@ -27,7 +27,7 @@ public class CraftDefaultHQRequiredFilter : BooleanFilter
 
     public override string[] GetChoices()
     {
-        return ["Yes", "No"];
+        return ["是", "否"];
     }
 
     public override void UpdateFilterConfiguration(FilterConfiguration configuration, bool? newValue)

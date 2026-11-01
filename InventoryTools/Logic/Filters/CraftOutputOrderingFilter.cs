@@ -29,7 +29,7 @@ public class CraftOutputOrderingFilter : ChoiceFilter<OutputOrderingSetting>
     }
 
     public override string Key { get; set; } = "CraftOutputOrderingFilter";
-    public override string Name { get; set; } = "Output Ordering";
+    public override string Name { get; set; } = "产物排序方式";
 
     public override string HelpText { get; set; } =
         "Should the list of output items be ordered in a specific way?";
@@ -62,11 +62,11 @@ public class CraftOutputOrderingFilter : ChoiceFilter<OutputOrderingSetting>
         switch (choice)
         {
             case(OutputOrderingSetting.AsAdded):
-                return "As Added";
+                return "按添加顺序";
             case(OutputOrderingSetting.ByName):
-                return "By Name";
+                return "按名称";
             case(OutputOrderingSetting.ByClass):
-                return "By Class";
+                return "按职业";
         }
 
         return choice.ToString();

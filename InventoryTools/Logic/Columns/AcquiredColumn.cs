@@ -26,8 +26,8 @@ namespace InventoryTools.Logic.Columns
             return _unlockTrackerService.IsUnlocked(searchResult.Item);
         }
 
-        public override string Name { get; set; } = "Has Been Acquired?";
-        public override string RenderName => "Acquired?";
+        public override string Name { get; set; } = "已获得？";
+        public override string RenderName => "已获得？";
         public override float Width { get; set; } = 125.0f;
 
         public override string HelpText { get; set; } =

@@ -31,7 +31,7 @@ public class TooltipCuratedListsSetting : MultipleListChoiceSetting
     public override FilterType? ListFilterType => FilterType.CuratedList;
 
     public override string Key { get; set; } = "TooltipCuratedLists";
-    public override string Name { get; set; } = "Curated Lists to Check";
+    public override string Name { get; set; } = "要检查的精选清单";
 
     public override string HelpText { get; set; } =
         "Which curated lists should be checked? If no lists are picked, every curated list is checked.";

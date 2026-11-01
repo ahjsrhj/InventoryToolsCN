@@ -50,21 +50,21 @@ public class ItemQuestUseRenderer : ItemInfoRenderer<ItemQuestUse>
         var quest = asSource.Quest.Value;
 
         var questName = quest.Name.ToImGuiString();
-        ImGui.Text("Name: " + questName);
-        ImGui.Text("Expansion: " + quest.Expansion.Value.Name.ToImGuiString());
+        ImGui.Text("名称：" + questName);
+        ImGui.Text("版本：" + quest.Expansion.Value.Name.ToImGuiString());
         if (quest.BeastTribe.RowId != 0)
         {
-            ImGui.Text("Allied Society: " + quest.BeastTribe.Value.Name.ToImGuiString());
+            ImGui.Text("友好部族：" + quest.BeastTribe.Value.Name.ToImGuiString());
         }
         if (quest.Festival.RowId != 0 && _festivalNames.ContainsKey(quest.Festival.RowId))
         {
             ImGui.PushTextWrapPos();
-            ImGui.Text("Only available from " + _festivalNames[quest.Festival.RowId]);
+            ImGui.Text("仅限此活动期间获取：" + _festivalNames[quest.Festival.RowId]);
             ImGui.PopTextWrapPos();
         }
 
-        DrawItems("Required Items: ", asSource.CostItems);
-        DrawItems("Rewards: ", asSource.RewardItems);
+        DrawItems("所需物品：", asSource.CostItems);
+        DrawItems("奖励：", asSource.RewardItems);
     };
 
     public override Func<ItemSource, string> GetName => source =>
@@ -118,21 +118,21 @@ public class ItemQuestSourceRenderer : ItemInfoRenderer<ItemQuestSource>
         var quest = asSource.Quest.Value;
 
         var questName = quest.Name.ToImGuiString();
-        ImGui.Text("Name: " + questName);
-        ImGui.Text("Expansion: " + quest.Expansion.Value.Name.ToImGuiString());
+        ImGui.Text("名称：" + questName);
+        ImGui.Text("版本：" + quest.Expansion.Value.Name.ToImGuiString());
         if (quest.BeastTribe.RowId != 0)
         {
-            ImGui.Text("Allied Society: " + quest.BeastTribe.Value.Name.ToImGuiString());
+            ImGui.Text("友好部族：" + quest.BeastTribe.Value.Name.ToImGuiString());
         }
         if (quest.Festival.RowId != 0 && _festivalNames.ContainsKey(quest.Festival.RowId))
         {
             ImGui.PushTextWrapPos();
-            ImGui.Text("Only available from " + _festivalNames[quest.Festival.RowId]);
+            ImGui.Text("仅限此活动期间获取：" + _festivalNames[quest.Festival.RowId]);
             ImGui.PopTextWrapPos();
         }
 
-        DrawItems("Required Items: ", asSource.CostItems);
-        DrawItems("Rewards: ", asSource.RewardItems);
+        DrawItems("所需物品：", asSource.CostItems);
+        DrawItems("奖励：", asSource.RewardItems);
     };
 
     public override Func<ItemSource, string> GetName => source =>

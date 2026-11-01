@@ -18,5 +18,5 @@ public class ContextMenuCopyNameSetting : GenericBooleanSetting
     {
     }
 
-    public override string WizardName => "Copy Name";
+    public override string WizardName => "复制名称";
 }

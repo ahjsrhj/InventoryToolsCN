@@ -375,7 +375,7 @@ public class CharacterScopePicker
 
         if (scopeName == "")
         {
-            scopeName = "All";
+            scopeName = "全部";
         }
 
         if (scope.Invert)
@@ -431,7 +431,7 @@ public class CharacterScopePicker
         {
             if (combo)
             {
-                ImGui.Text("Character Scope Editor");
+                ImGui.Text("角色范围编辑器");
                 using(var child = ImRaii.Child("selected", new Vector2(200, 0) * ImGui.GetIO().FontGlobalScale , true, ImGuiWindowFlags.NoScrollbar))
                 {
                     if (child)
@@ -442,7 +442,7 @@ public class CharacterScopePicker
                             {
                                 if (searchScopes.Count == 0)
                                 {
-                                    ImGui.TextWrapped("No scopes defined yet. Press add to start.");
+                                ImGui.TextWrapped("尚未定义任何范围。点击“添加”开始设置。");
                                 }
 
                                 for (var index = 0; index < searchScopes.Count; index++)
@@ -473,14 +473,14 @@ public class CharacterScopePicker
                         {
                             if (commandBar)
                             {
-                                if (ImGui.Button("Add"))
+                                if (ImGui.Button("添加"))
                                 {
                                     _selectedScope = new CharacterSearchScope();
                                     searchScopes.Add(_selectedScope);
                                     changed = true;
                                 }
                                 ImGui.SameLine();
-                                if (ImGui.Button("Save"))
+                                if (ImGui.Button("保存"))
                                 {
                                     ImGui.CloseCurrentPopup();
                                 }
@@ -494,9 +494,9 @@ public class CharacterScopePicker
                 {
                     if (_selectedScope == null)
                     {
-                        ImGui.TextWrapped("The character scope editor allows you define which characters you want to search across.");
-                        ImGui.TextWrapped("By default, every character Allagan Tools knows about is searched.");
-                        ImGui.TextWrapped("By providing a set of scopes, you are narrowing down from which characters are displayed/counted.");
+                        ImGui.TextWrapped("你可以在此指定要检索的角色范围。");
+                        ImGui.TextWrapped("默认会检索 Allagan Tools 可识别的所有角色。");
+                        ImGui.TextWrapped("设置范围后，只会显示或统计符合条件的角色。");
                     }
                     else
                     {
@@ -509,9 +509,9 @@ public class CharacterScopePicker
                                     var isCharacter = _selectedScope.CharacterId != null;
                                     var isWorld = _selectedScope.WorldId != null;
                                     var isActiveCharacter = _selectedScope.ActiveCharacter != null;
-                                    ImGui.Text("Search Scope:");
+                                    ImGui.Text("检索范围：");
                                     ImGui.Separator();
-                                    if (ImGui.RadioButton("All",!isCharacter && !isWorld && !isActiveCharacter))
+                                    if (ImGui.RadioButton("全部",!isCharacter && !isWorld && !isActiveCharacter))
                                     {
                                         _selectedScope.Reset();
                                     }
@@ -519,7 +519,7 @@ public class CharacterScopePicker
                                     _imGuiService.HelpMarker("Match against all characters");
                                     ImGui.NewLine();
 
-                                    if (ImGui.RadioButton("Character",isCharacter))
+                                    if (ImGui.RadioButton("指定角色",isCharacter))
                                     {
                                         _selectedScope.Reset();
                                         _selectedScope.CharacterId = 0;
@@ -554,7 +554,7 @@ public class CharacterScopePicker
                                         }
                                     }
                                     ImGui.NewLine();
-                                    if (ImGui.RadioButton("Active Character",isActiveCharacter))
+                                    if (ImGui.RadioButton("当前角色",isActiveCharacter))
                                     {
                                         _selectedScope.Reset();
                                         _selectedScope.ActiveCharacter = true;
@@ -563,7 +563,7 @@ public class CharacterScopePicker
                                     _imGuiService.HelpMarker("Match against the currently logged in character.");
                                     ImGui.NewLine();
 
-                                    if (ImGui.RadioButton("World",isWorld))
+                                    if (ImGui.RadioButton("世界",isWorld))
                                     {
                                         _selectedScope.Reset();
                                         _selectedScope.WorldId = 0;
@@ -645,7 +645,7 @@ public class CharacterScopePicker
                                     ImGui.Separator();
                                     ImGui.NewLine();
                                     var invert = _selectedScope.Invert;
-                                    if (ImGui.Checkbox("Invert", ref invert))
+                                    if (ImGui.Checkbox("反选", ref invert))
                                     {
                                         _selectedScope.Invert = invert;
                                         changed = true;
@@ -660,13 +660,13 @@ public class CharacterScopePicker
                             {
                                 if (commandBar)
                                 {
-                                    if (ImGui.Button("Save"))
+                                    if (ImGui.Button("保存"))
                                     {
                                         _selectedScope = null;
                                         changed = true;
                                     }
                                     ImGui.SameLine();
-                                    if (ImGui.Button("Delete") && _selectedScope != null)
+                                    if (ImGui.Button("删除") && _selectedScope != null)
                                     {
                                         searchScopes.Remove(_selectedScope);
                                         _selectedScope = null;

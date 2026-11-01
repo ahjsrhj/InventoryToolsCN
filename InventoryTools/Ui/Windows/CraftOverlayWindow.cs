@@ -169,8 +169,8 @@ public class CraftOverlayWindow : OverlayWindow
                             nextState = "Collapse";
                             break;
                     }
-                    ImGui.TextUnformatted($"Left Click: {nextState}");
-                    ImGui.TextUnformatted("Right Click: Menu");
+                    ImGui.TextUnformatted($"左键：{(nextState == "Expand" ? "展开" : nextState == "Show More" ? "显示更多" : "折叠")}");
+                    ImGui.TextUnformatted("右键：打开菜单");
                 }
             }
 
@@ -271,7 +271,7 @@ public class CraftOverlayWindow : OverlayWindow
         }
         else
         {
-            ImGui.Text("Nothing to do.");
+            ImGui.Text("暂无待办事项。");
             ImGui.SetCursorPosX(ImGui.GetCursorPosX() + (150 + 70 + 80 * ImGui.GetIO().FontGlobalScale));
         }
 
@@ -480,7 +480,7 @@ public class CraftOverlayWindow : OverlayWindow
                             {
                                 if (popup.Success)
                                 {
-                                    if (ImGui.MenuItem("More Information"))
+                                    if (ImGui.MenuItem("更多信息"))
                                     {
                                         this.MediatorService.Publish(new OpenUintWindowMessage(typeof(ItemWindow), currentItem.ItemId));
                                     }

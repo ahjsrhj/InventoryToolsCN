@@ -14,9 +14,9 @@ namespace InventoryTools.Logic.Columns
         {
             return searchResult.Item.ObtainedGathering || searchResult.Item.ObtainedFishing;
         }
-        public override string Name { get; set; } = "Is Gatherable?";
+        public override string Name { get; set; } = "可采集？";
         public override float Width { get; set; } = 80.0f;
-        public override string HelpText { get; set; } = "Can the item be gathered?";
+        public override string HelpText { get; set; } = "此物品能否采集获得？";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Boolean;
         public override FilterType DefaultIn => Logic.FilterType.GameItemFilter;

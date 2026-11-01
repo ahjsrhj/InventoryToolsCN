@@ -12,7 +12,7 @@ namespace InventoryTools.Logic.Settings
 
         public static string AsKey => "HotkeyMobWindow";
         public override string Key { get; set; } = AsKey;
-        public override string Name { get; set; } = "Toggle Mob Window";
+        public override string Name { get; set; } = "切换怪物窗口";
 
         public override string HelpText { get; set; } =
             "The hotkey to toggle the mob window.";

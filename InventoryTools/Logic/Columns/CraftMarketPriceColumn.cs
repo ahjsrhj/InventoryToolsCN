@@ -71,7 +71,7 @@ public class CraftMarketPriceColumn : GilColumn
         }
         else
         {
-            ImGui.Text("N/A");
+            ImGui.Text("暂无数据");
         }
 
         var craftPrices = searchResult.CraftItem.CraftPrices;
@@ -98,11 +98,11 @@ public class CraftMarketPriceColumn : GilColumn
                             totalAvailable += price.Left;
                         }
 
-                        ImGui.Text("Available: " + totalAvailable);
+                        ImGui.Text("可购买：" + totalAvailable);
 
                         if (searchResult.CraftItem.MarketAvailable != searchResult.CraftItem.QuantityNeeded)
                         {
-                            ImGui.Text("Missing: " + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
+                            ImGui.Text("缺少：" + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
                         }
                     }
                 }
@@ -112,9 +112,9 @@ public class CraftMarketPriceColumn : GilColumn
         return new List<MessageBase>();
     }
 
-    public override string Name { get; set; } = "Market Pricing";
+    public override string Name { get; set; } = "市场价格";
     public override float Width { get; set; } = 150;
-    public override string HelpText { get; set; } = "The current market pricing for the given item. ";
+    public override string HelpText { get; set; } = "此物品当前的市场价格。";
 
     public override FilterType DefaultIn => Logic.FilterType.CraftFilter;
     public override FilterType AvailableIn => Logic.FilterType.CraftFilter;

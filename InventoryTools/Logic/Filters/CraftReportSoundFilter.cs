@@ -25,7 +25,7 @@ public class CraftReportSoundFilter : ChoiceFilter<uint>
     }
     
     public override string Key { get; set; } = "CraftReportSound";
-    public override string Name { get; set; } = "Completion Sound";
+    public override string Name { get; set; } = "完成提示音";
     
     public override string HelpText { get; set; } =
         "Which sound effect to play when an item in this list reaches its required quantity (when 'Play a sound when an item is complete?' is enabled).";

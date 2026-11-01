@@ -34,7 +34,7 @@ public abstract class ItemRelicToolSourceRenderer<T> : ItemInfoRenderer<T> where
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = this.AsSource(source);
-        ImGui.TextUnformatted("Class: " + asSource.RelicTool.ClassJob.Value.Name.ToImGuiString().ToTitleCase());
+        ImGui.TextUnformatted("职业：" + asSource.RelicTool.ClassJob.Value.Name.ToImGuiString().ToTitleCase());
         this.DrawForms("Forms:", asSource.Forms);
     };
 

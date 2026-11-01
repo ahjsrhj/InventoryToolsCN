@@ -52,12 +52,12 @@ public class ItemCraftResultSourceRenderer : ItemInfoRenderer<ItemCraftResultSou
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text($"Craft Type: {asSource.Recipe.Base.CraftType.Value.Name}");
-        ImGui.Text($"Yield: {asSource.Recipe.Base.AmountResult}");
-        ImGui.Text($"Difficulty: {asSource.Recipe.Base.DifficultyFactor}");
-        ImGui.Text($"Required Craftsmanship: {asSource.Recipe.Base.RequiredCraftsmanship}");
+        ImGui.Text($"制作职业：{asSource.Recipe.Base.CraftType.Value.Name}");
+        ImGui.Text($"产量：{asSource.Recipe.Base.AmountResult}");
+        ImGui.Text($"难度：{asSource.Recipe.Base.DifficultyFactor}");
+        ImGui.Text($"所需作业精度：{asSource.Recipe.Base.RequiredCraftsmanship}");
 
-        ImGui.Text("Ingredients:");
+        ImGui.Text("所需材料：");
         using (ImRaii.PushIndent())
         {
             foreach (var ingredient in asSource.Recipe.IngredientCounts)

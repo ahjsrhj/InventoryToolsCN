@@ -21,7 +21,7 @@ public class CraftZoneColumn : TextColumn
         _mapSheet = mapSheet;
     }
 
-    public override string Name { get; set; } = "Zone";
+    public override string Name { get; set; } = "区域";
     public override float Width { get; set; } = 100;
 
     public override bool? CraftOnly { get; } = true;

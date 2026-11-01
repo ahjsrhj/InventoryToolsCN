@@ -10,9 +10,9 @@ public class DyeCountColumn : IntegerColumn
     {
     }
 
-    public override string Name { get; set; } = "Dye Count";
+    public override string Name { get; set; } = "染色数量";
     public override float Width { get; set; } = 90;
-    public override string HelpText { get; set; } = "The number of dyes the item has or supports.";
+    public override string HelpText { get; set; } = "此物品已染色或支持的染剂数量。";
     public override ColumnCategory ColumnCategory { get; } = ColumnCategory.Stats;
     public override int? CurrentValue(ColumnConfiguration columnConfiguration, SearchResult searchResult)
     {

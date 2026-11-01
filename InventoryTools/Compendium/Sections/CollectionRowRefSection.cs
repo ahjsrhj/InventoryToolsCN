@@ -87,11 +87,11 @@ public class CollectionRowRefSection : ViewSection
             {
                 if (item.RefType == null)
                 {
-                    ImGui.Text("Unknown related row type.");
+                    ImGui.Text("未知的关联数据类型。");
                 }
                 else
                 {
-                    ImGui.Text("No matching compendium type for " + item.RefType.Name);
+                    ImGui.Text("找不到与此类型匹配的图鉴分类：" + item.RefType.Name);
                 }
                 hasDrawnAny = true;
             }
@@ -113,7 +113,7 @@ public class CollectionRowRefSection : ViewSection
 
         if (!hasDrawnAny && !_options.HideWhenEmpty)
         {
-            ImGui.Text("No related items found.");
+            ImGui.Text("未找到相关物品。");
         }
     }
 

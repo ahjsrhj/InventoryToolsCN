@@ -19,8 +19,8 @@ namespace InventoryTools.Logic.Columns
 
             return null;
         }
-        public override string Name { get; set; } = "Retainer Selling Unit Price";
-        public override string RenderName => "Retainer Unit Price";
+        public override string Name { get; set; } = "雇员售卖单价";
+        public override string RenderName => "雇员单价";
         public override float Width { get; set; } = 100;
 
         public override string HelpText { get; set; } =

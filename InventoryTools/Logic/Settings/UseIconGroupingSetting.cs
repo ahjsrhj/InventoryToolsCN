@@ -106,7 +106,7 @@ public class UseIconGroupingSetting : Setting<Dictionary<Type, bool>?>
                 if (disableReset != true && hasValueSet)
                 {
                     ImGui.SameLine();
-                    if (ImGui.Button("Reset##Reset"))
+                    if (ImGui.Button("重置##Reset"))
                     {
                         currentSettings.Remove(sourceRenderer.Key);
                         UpdateFilterConfiguration(configuration, currentSettings);
@@ -123,7 +123,7 @@ public class UseIconGroupingSetting : Setting<Dictionary<Type, bool>?>
     }
 
     public override string Key { get; set; } = "UseIconGrouping";
-    public override string Name { get; set; } = "Use Acquisition Icon Grouping";
-    public override string HelpText { get; set; } = "When use acquisition icons are displayed, how should they be grouped?";
+    public override string Name { get; set; } = "用途图标分组";
+    public override string HelpText { get; set; } = "显示物品用途图标时，选择图标的分组方式。";
     public override string Version { get; } = "1.11.0.10";
 }

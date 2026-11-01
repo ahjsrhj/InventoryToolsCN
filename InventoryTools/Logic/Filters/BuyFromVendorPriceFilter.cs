@@ -13,8 +13,8 @@ namespace InventoryTools.Logic.Filters
     public class BuyFromVendorPriceFilter : StringFilter
     {
         public override string Key { get; set; } = "GSBuyPrice";
-        public override string Name { get; set; } = "Buy From Vendor Price";
-        public override string HelpText { get; set; } = "The price when bought from shops.";
+        public override string Name { get; set; } = "商店购买价格";
+        public override string HelpText { get; set; } = "在商店购买此物品所需的价格。";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Acquisition;
 
         public override bool? FilterItem(FilterConfiguration configuration,InventoryItem item)

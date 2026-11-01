@@ -48,7 +48,7 @@ namespace InventoryTools.Logic.Columns
             _stringColumnFactory = stringColumnFactory;
             this.requirementSetting = _stringColumnFactory.Invoke("requirement", "Requires", "Search for a source that requires a specific item.",
                 null);
-            this.rewardsSetting = _stringColumnFactory.Invoke("rewards", "Rewards", "Search for a source that rewards a specific item. While this might seem redundant, certain sources provide more than one item.",
+            this.rewardsSetting = _stringColumnFactory.Invoke("rewards", "奖励", "搜索会奖励指定物品的来源。有些来源会提供多种物品，因此此选项在部分情况下很有用。",
                 null);
             this.mapSetting = _stringColumnFactory.Invoke("maps", "Maps", "Search for a source in a specific map.",
                 null);
@@ -141,7 +141,7 @@ namespace InventoryTools.Logic.Columns
             return String.Join(", ", itemSources.Select(c => _itemInfoRenderService.GetSourceDescription(c)));
         }
 
-        public override string Name { get; set; } = "Acquisition";
+        public override string Name { get; set; } = "获取方式";
         public override float Width { get; set; } = 250;
 
         public override string HelpText { get; set; } =

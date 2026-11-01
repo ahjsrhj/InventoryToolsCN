@@ -64,7 +64,7 @@ public class ConfigurationWizard : GenericWindow
 
     public override void Initialize()
     {
-        WindowName = "Configuration Wizard";
+        WindowName = "配置向导";
         Key = "wizard";
         _availableFeatures = _configurationWizardService.GetNewFeatures()
             .OrderBy(c => FeatureOrder.IndexOf(c.Content.Key) == -1
@@ -90,7 +90,7 @@ public class ConfigurationWizard : GenericWindow
     }
 
     public override string GenericKey => "wizard";
-    public override string GenericName => "Configuration Wizard";
+    public override string GenericName => "配置向导";
     public override bool DestroyOnClose => true;
     public override bool SaveState => false;
     public override Vector2? DefaultSize { get; } = new(800, 650);

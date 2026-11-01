@@ -42,7 +42,7 @@ public class ItemFolkloreTomeSourceRenderer : ItemInfoRenderer<ItemFolkloreTomeS
         var divisionName = asSource.NotebookDivision.ValueNullable?.Name.ToImGuiString();
         if (!string.IsNullOrEmpty(divisionName))
         {
-            ImGui.Text("Unlocks: " + divisionName);
+            ImGui.Text("解锁：" + divisionName);
         }
 
         if (asSource.RelatedItems.Count > 0)

@@ -29,7 +29,7 @@ namespace InventoryTools.Logic.Filters
         }
         public override int Order { get; set; } = 2;
         public override string Key { get; set; } = "Destinations";
-        public override string Name { get; set; } = "Destinations";
+        public override string Name { get; set; } = "目标位置";
 
         public override string HelpText { get; set; } =
             "This lists all the destinations that are applicable given the destinations picked above.";
@@ -46,7 +46,7 @@ namespace InventoryTools.Logic.Filters
         public override void Draw(FilterConfiguration configuration)
         {
             ImGui.NewLine();
-            ImGui.Text("Destination Information: ");
+            ImGui.Text("目标信息：");
             ImGui.SameLine();
             ImGuiService.HelpMarker(GetHelpText(configuration));
             var allCharacters = _characterMonitor.Characters;

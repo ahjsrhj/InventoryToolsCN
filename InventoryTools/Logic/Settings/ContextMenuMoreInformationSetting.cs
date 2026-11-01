@@ -18,9 +18,9 @@ namespace InventoryTools.Logic.Settings
         }
 
         public override string Key { get; set; } = "moreInfoContextMenu";
-        public override string Name { get; set; } = "Context Menu - More Information (Items)";
+        public override string Name { get; set; } = "右键菜单 - 更多信息（物品）";
 
-        public override string WizardName { get; } = "More Information";
+        public override string WizardName { get; } = "更多信息";
 
         public override string HelpText { get; set; } =
             "Add the more information menu item to the right click/context menu for items?";

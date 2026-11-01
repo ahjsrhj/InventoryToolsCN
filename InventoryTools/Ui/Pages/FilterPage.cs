@@ -66,7 +66,7 @@ namespace InventoryTools.Ui.Pages
             if (ImGui.CollapsingHeader("General", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
                 ImGui.SetNextItemWidth(100);
-                ImGui.LabelText(labelName + "FilterNameLabel", "Name: ");
+                ImGui.LabelText(labelName + "FilterNameLabel", "名称：");
                 ImGui.SameLine();
                 ImGui.InputText(labelName + "FilterName", ref filterName, 100);
                 if (filterName != filterConfiguration.Name)
@@ -84,12 +84,12 @@ namespace InventoryTools.Ui.Pages
 
                 var filterType = filterConfiguration.FormattedFilterType;
                 ImGui.SetNextItemWidth(100);
-                ImGui.LabelText(labelName + "FilterTypeLabel", "List Type: ");
+                ImGui.LabelText(labelName + "FilterTypeLabel", "清单类型：");
                 ImGui.SameLine();
                 ImGui.TextDisabled(filterType);
 
                 ImGui.SetNextItemWidth(150);
-                ImGui.LabelText(labelName + "DisplayInTabs", "Display in Tab List: ");
+                ImGui.LabelText(labelName + "DisplayInTabs", "在标签列表中显示：");
                 ImGui.SameLine();
                 var displayInTabs = filterConfiguration.DisplayInTabs;
                 if (ImGui.Checkbox(labelName + "DisplayInTabsCheckbox", ref displayInTabs))

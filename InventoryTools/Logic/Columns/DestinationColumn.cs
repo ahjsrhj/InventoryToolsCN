@@ -52,9 +52,9 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
 
-        public override string Name { get; set; } = "Destination";
+        public override string Name { get; set; } = "目标位置";
         public override float Width { get; set; } = 100.0f;
-        public override string HelpText { get; set; } = "Shows where the item should be moved to or where the item was moved to in the case of a history filter.";
+        public override string HelpText { get; set; } = "显示物品应移动到的位置；使用历史记录筛选时，则显示物品已移动到的位置。";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
         public override FilterType AvailableIn => Logic.FilterType.SortingFilter | Logic.FilterType.CraftFilter | Logic.FilterType.HistoryFilter;

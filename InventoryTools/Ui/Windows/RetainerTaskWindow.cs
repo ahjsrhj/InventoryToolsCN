@@ -65,21 +65,21 @@ namespace InventoryTools.Ui
         {
             if (RetainerTask == null)
             {
-                ImGui.TextUnformatted("Submarine Exploration Point with the ID " + _retainerTaskId + " could not be found.");
+                ImGui.TextUnformatted("找不到 ID 为 " + _retainerTaskId + " 的雇员探险委托。");
             }
             else
             {
                 ImGui.TextUnformatted(RetainerTask.FormattedName);
-                ImGui.TextUnformatted("Level: " + RetainerTask.Base.RetainerLevel);
-                ImGui.TextUnformatted("Duration: " + RetainerTask.DurationString);
-                ImGui.TextUnformatted("Experience: " + RetainerTask.ExperienceString);
-                ImGui.TextUnformatted("Venture Cost: " + RetainerTask.Base.VentureCost);
-                ImGui.TextUnformatted("Average iLvl: " + RetainerTask.Base.RequiredItemLevel);
+                ImGui.TextUnformatted("等级：" + RetainerTask.Base.RetainerLevel);
+                ImGui.TextUnformatted("耗时：" + RetainerTask.DurationString);
+                ImGui.TextUnformatted("经验值：" + RetainerTask.ExperienceString);
+                ImGui.TextUnformatted("委托费用：" + RetainerTask.Base.VentureCost);
+                ImGui.TextUnformatted("平均物品等级：" + RetainerTask.Base.RequiredItemLevel);
                 ;
                 ImGui.Image(ImGuiService.GetIconTexture(65049).Handle, new Vector2(100, 100) * ImGui.GetIO().FontGlobalScale);
 
 
-                if (ImGui.CollapsingHeader("Rewards (" + _drops.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+                if (ImGui.CollapsingHeader("奖励（" + _drops.Count + "）", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                 {
                     ImGuiStylePtr style = ImGui.GetStyle();
                     float windowVisibleX2 = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;

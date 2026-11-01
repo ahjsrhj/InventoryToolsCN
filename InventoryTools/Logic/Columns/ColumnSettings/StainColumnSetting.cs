@@ -40,8 +40,8 @@ public class StainColumnSetting : ChoiceColumnSetting<StainColumnSettingEnum?>
     }
 
     public override string Key { get; set; } = "Display Mode";
-    public override string Name { get; set; } = "Display Mode";
-    public override string HelpText { get; set; } = "Choose the display mode of the dye column";
+    public override string Name { get; set; } = "显示方式";
+    public override string HelpText { get; set; } = "选择染剂列的显示方式。";
     public override StainColumnSettingEnum? DefaultValue { get; set; } = StainColumnSettingEnum.Both;
     public override List<StainColumnSettingEnum?> GetChoices(ColumnConfiguration configuration)
     {

@@ -11,10 +11,10 @@ public class IsCustomDeliveryItemColumn : CheckboxColumn
     {
     }
 
-    public override string Name { get; set; } = "Is custom delivery item?";
-    public override string? RenderName { get; } = "Custom delivery item?";
+    public override string Name { get; set; } = "委托交纳物品？";
+    public override string? RenderName { get; } = "委托交纳？";
     public override float Width { get; set; } = 80;
-    public override string HelpText { get; set; } = "Is this item used for custom deliveries?";
+    public override string HelpText { get; set; } = "此物品是否用于特殊委托？";
     public override ColumnCategory ColumnCategory { get; } = ColumnCategory.Basic;
     public override bool HasFilter { get; set; } = true;
     public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Boolean;

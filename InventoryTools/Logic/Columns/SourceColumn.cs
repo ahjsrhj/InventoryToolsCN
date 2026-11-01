@@ -26,9 +26,9 @@ namespace InventoryTools.Logic.Columns
 
             return null;
         }
-        public override string Name { get; set; } = "Source";
+        public override string Name { get; set; } = "持有者";
         public override float Width { get; set; } = 100.0f;
-        public override string HelpText { get; set; } = "Shows the character/retainer an item is located in.";
+        public override string HelpText { get; set; } = "显示持有此物品的角色或雇员。";
         public override bool HasFilter { get; set; } = true;
         public override ColumnFilterType FilterType { get; set; } = ColumnFilterType.Text;
         public override FilterType DefaultIn => Logic.FilterType.SearchFilter | Logic.FilterType.SortingFilter | Logic.FilterType.CraftFilter | Logic.FilterType.HistoryFilter;

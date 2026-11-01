@@ -70,11 +70,11 @@ public abstract class ItemInfoRenderer<T> : IItemInfoRenderer where T : ItemSour
                     ImGui.SameLine();
                     if (itemInfo.Min == itemInfo.Max)
                     {
-                        ImGui.Text("(Drops 1)");
+                    ImGui.Text("（掉落 1 个）");
                     }
                     else
                     {
-                        ImGui.Text("(Drops " + itemInfo.Min.Value + " - " + itemInfo.Max.Value + ")");
+                        ImGui.Text("（掉落 " + itemInfo.Min.Value + " - " + itemInfo.Max.Value + " 个）");
                     }
                 }
             }
@@ -119,7 +119,7 @@ public abstract class ItemInfoRenderer<T> : IItemInfoRenderer where T : ItemSour
 
         if (maps.Count != 0)
         {
-            ImGui.Text("Maps:");
+            ImGui.Text("地图：");
             using (ImRaii.PushIndent())
             {
                 foreach (var map in maps)
@@ -141,7 +141,7 @@ public abstract class ItemInfoRenderer<T> : IItemInfoRenderer where T : ItemSour
 
         if (maps.Count != 0)
         {
-            ImGui.Text("Maps:");
+            ImGui.Text("地图：");
             using (ImRaii.PushIndent())
             {
                 foreach (var map in maps)

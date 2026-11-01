@@ -71,29 +71,29 @@ namespace InventoryTools.Logic.Filters.Abstract
         {
             if (CanRemove && CanRemoveItem(configuration, item.Key))
             {
-                if (ImGui.Button("X##Column" + index))
+            if (ImGui.Button("移除##Column" + index))
                 {
                     RemoveItem(configuration, item.Key);
                 }
                 ImGui.SameLine();
             }
-            if (ImGui.Button("Top##Column" + index))
+            if (ImGui.Button("置顶##Column" + index))
             {
                 MoveItemTop(configuration, item.Key);
             }
             ImGui.SameLine();
-            if (ImGui.Button("Up##Column" + index))
+            if (ImGui.Button("上移##Column" + index))
             {
                 MoveItemUp(configuration, item.Key);
             }
 
             ImGui.SameLine();
-            if (ImGui.Button("Down##Column" + index))
+            if (ImGui.Button("下移##Column" + index))
             {
                 MoveItemDown(configuration, item.Key);
             }
             ImGui.SameLine();
-            if (ImGui.Button("Bottom##Column" + index))
+            if (ImGui.Button("置底##Column" + index))
             {
                 MoveItemBottom(configuration, item.Key);
             }
@@ -138,7 +138,7 @@ namespace InventoryTools.Logic.Filters.Abstract
             if (HasValueSet(configuration) && ShowReset)
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button("重置##" + Key + "Reset"))
                 {
                     ResetFilter(configuration);
                 }

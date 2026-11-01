@@ -29,9 +29,9 @@ namespace InventoryTools.Logic.Filters
         }
 
         public override string Key { get; set; } = "MBSaleCount";
-        public override string Name { get; set; } = "Marketboard Sale Counter";
+        public override string Name { get; set; } = "市场成交次数";
 
-        public override string HelpText { get; set; } = "Shows the number of sales that have been made within X days.";
+        public override string HelpText { get; set; } = "显示最近 X 天内的成交次数。";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Market;
 

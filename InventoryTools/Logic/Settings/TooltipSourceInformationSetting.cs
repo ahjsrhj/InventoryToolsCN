@@ -37,7 +37,7 @@ public class TooltipSourceInformationEnabledSetting : GenericBooleanSetting
     {
     }
 
-    public override string WizardName { get; } = "Show Source Information";
+    public override string WizardName { get; } = "显示获取来源信息";
 }
 
 public class TooltipSourceInformationModifierSetting : GenericEnumChoiceSetting<TooltipSourceModifier>
@@ -271,7 +271,7 @@ public class TooltipSourceInformationSetting : Setting<Dictionary<ItemInfoType, 
     }
 
     public override string Key { get; set; } = "TooltipSourceInformation";
-    public override string Name { get; set; } = "Source Information Configuration";
+    public override string Name { get; set; } = "获取来源信息配置";
 
     public override string HelpText { get; set; } =
         "If the source information tooltip is enabled, how should the various sources be ordered/displayed/etc?";

@@ -68,8 +68,8 @@ namespace InventoryTools.Logic.Columns
 
             return (Loading, Loading);
         }
-        public override string Name { get; set; } = "Market Board Minimum Price NQ/HQ";
-        public override string RenderName => "MB Min. Price NQ/HQ";
+        public override string Name { get; set; } = "市场最低价（普通/高品质）";
+        public override string RenderName => "市场最低价 普/高";
 
         public override FilterType DefaultIn => Logic.FilterType.CraftFilter;
     }

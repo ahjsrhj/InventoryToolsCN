@@ -118,8 +118,8 @@ namespace InventoryTools.Logic.Columns
 
             return Loading;
         }
-        public override string Name { get; set; } = "Market Board Minimum Price HQ";
-        public override string RenderName => "MB Min. Price HQ";
+        public override string Name { get; set; } = "市场最低价（高品质）";
+        public override string RenderName => "最低价 高";
         public override float Width { get; set; } = 250.0f;
 
         public override string HelpText { get; set; } =

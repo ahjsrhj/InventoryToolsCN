@@ -121,13 +121,13 @@ namespace InventoryTools.Logic
 
 
 
-                        if (ImGui.Selectable("Yes", currentItem == "Yes"))
+                        if (ImGui.Selectable("是", currentItem == "Yes"))
                         {
                             columnConfiguration.FilterText = "true";
                             hasChanged = true;
                         }
 
-                        if (ImGui.Selectable("No", currentItem == "No"))
+                        if (ImGui.Selectable("否", currentItem == "No"))
                         {
                             columnConfiguration.FilterText = "false";
                             hasChanged = true;
@@ -180,8 +180,8 @@ namespace InventoryTools.Logic
                             color.Pop();
                             using (ImRaii.Tooltip())
                             {
-                                ImGui.Text("Extra Filters");
-                                ImGui.Text("Right Click: Clear All");
+                                ImGui.Text("更多筛选条件");
+                                ImGui.Text("右键：清除全部");
                             }
                         }
                     }

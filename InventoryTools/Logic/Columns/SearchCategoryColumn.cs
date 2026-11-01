@@ -19,8 +19,8 @@ namespace InventoryTools.Logic.Columns
 
             return "";
         }
-        public override string Name { get; set; } = "Category (Marketboard)";
-        public override string RenderName => "MB Category";
+        public override string Name { get; set; } = "市场分类";
+        public override string RenderName => "市场分类";
         public override float Width { get; set; } = 200.0f;
 
         public override string HelpText { get; set; } =

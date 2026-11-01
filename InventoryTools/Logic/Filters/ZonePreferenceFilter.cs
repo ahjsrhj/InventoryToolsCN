@@ -55,7 +55,7 @@ public class ZonePreferenceFilter : SortedListFilter<uint, uint>
     }
 
     public override string Key { get; set; } = "CraftZonePreference";
-    public override string Name { get; set; } = "Default Zone Order";
+    public override string Name { get; set; } = "默认区域顺序";
 
     public override string HelpText { get; set; } =
         "When grouping items by zone, which zones should take preference?";
@@ -139,7 +139,7 @@ public class ZonePreferenceFilter : SortedListFilter<uint, uint>
                 ImGui.Separator();
                 if (_searchString == "")
                 {
-                    ImGui.TextUnformatted("Start typing to search...");
+                    ImGui.TextUnformatted("输入关键词以搜索…");
                 }
                 foreach (var item in SearchTerritories.Where(c => !currentValue.ContainsKey(c.RowId)))
                 {

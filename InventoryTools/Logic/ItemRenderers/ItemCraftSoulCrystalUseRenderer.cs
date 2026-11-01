@@ -30,7 +30,7 @@ public class ItemCraftSoulCrystalUseRenderer : ItemInfoRenderer<ItemCraftSoulCry
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Equip to specialize as " + asSource.ClassJob.Base.Name.ExtractText());
+        ImGui.Text("装备后可专精为" + asSource.ClassJob.Base.Name.ExtractText());
     };
 
     public override Func<ItemSource, string> GetName => source =>
@@ -48,6 +48,6 @@ public class ItemCraftSoulCrystalUseRenderer : ItemInfoRenderer<ItemCraftSoulCry
     public override Func<ItemSource, string> GetDescription => source =>
     {
         var asSource = AsSource(source);
-        return "Equip to specialize as " + asSource.ClassJob.Base.Name.ExtractText();
+        return "装备后可专精为" + asSource.ClassJob.Base.Name.ExtractText();
     };
 }

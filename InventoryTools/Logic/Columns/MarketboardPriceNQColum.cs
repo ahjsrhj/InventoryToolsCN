@@ -98,8 +98,8 @@ namespace InventoryTools.Logic.Columns
 
             return Loading;
         }
-        public override string Name { get; set; } = "Market Board Average Price NQ";
-        public override string RenderName => "MB Avg. Price NQ";
+        public override string Name { get; set; } = "市场均价（普通品质）";
+        public override string RenderName => "均价 普";
         public override string HelpText { get; set; } =
             "Shows the average price of the NQ form of the item. If no world is selected, your home world is used. This data is sourced from universalis.";
         public override float Width { get; set; } = 250.0f;

@@ -93,11 +93,11 @@ namespace InventoryTools.Logic.Columns
                 ImGui.NewLine();
                 ImGui.Separator();
                 ImGui.SetNextItemWidth(220);
-                ImGui.LabelText("##" + configuration.Key + "Search", "Characters to search in:");
+                ImGui.LabelText("##" + configuration.Key + "Search", "检索角色：");
                 ImGui.SetNextItemWidth(250);
                 ImGui.SameLine();
                 _scopePickerColumnSetting.Draw(columnConfiguration,
-                    "This lets you set which characters you want to generate a total based off.");
+                    "在此选择用于统计总数的角色。");
                 base.DrawEditor(columnConfiguration, configuration);
             }
             return null;
@@ -138,8 +138,8 @@ namespace InventoryTools.Logic.Columns
             return base.Draw(configuration, columnConfiguration, searchResult, rowIndex, columnIndex);
         }
 
-        public override string Name { get; set; } = "Quantity/Total Quantity Available";
-        public override string RenderName => "Quantity";
+        public override string Name { get; set; } = "数量/可用总数";
+        public override string RenderName => "数量";
 
         public override float Width { get; set; } = 70.0f;
 

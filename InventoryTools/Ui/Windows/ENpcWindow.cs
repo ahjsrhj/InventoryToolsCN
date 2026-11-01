@@ -63,7 +63,7 @@ namespace InventoryTools.Ui
             }
             else
             {
-                WindowName = "Invalid NPC";
+                WindowName = "无效 NPC";
                 Key = "enpc_unknown";
             }
         }
@@ -72,13 +72,13 @@ namespace InventoryTools.Ui
         private uint _eNpcId;
         private ENpcResidentRow? ENpcResidentRow => _eNpcResidentSheet.GetRowOrDefault(_eNpcId);
         public List<IShop>? Shops;
-        public override string GenericName => "Npcs";
+        public override string GenericName => "NPC";
         public override bool DestroyOnClose => true;
         public override void DrawWindow()
         {
             if (ENpcResidentRow == null)
             {
-                ImGui.TextUnformatted("eNpc with the ID " + _eNpcId + " could not be found.");
+                ImGui.TextUnformatted("找不到 ID 为 " + _eNpcId + " 的 NPC。");
             }
             else
             {

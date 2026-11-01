@@ -63,7 +63,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
     }
 
     public override string Key { get; set; } = "CraftIngredientPreference";
-    public override string Name { get; set; } = "Default Ingredient Sourcing";
+    public override string Name { get; set; } = "默认材料获取方式";
 
     public override string HelpText { get; set; } =
         "When generating the materials for a craft, the 'Ingredient Sourcing' setting determines the preferred method of acquisition. The craft list will refer to this sorted list to determine the appropriate method. Please note that this assumes the item in the craft list can be obtained through this method. If not, the next item in the ingredient sourcing list will be considered.";
@@ -156,7 +156,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
             {
                 using (ImRaii.Tooltip())
                 {
-                    ImGui.Text("Click and drag to reorder");
+                    ImGui.Text("按住并拖动以调整顺序");
                 }
             }
 
@@ -166,7 +166,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
                 {
                     _draggedItem = itemKey;
                     ImGui.SetDragDropPayload("##IngredientPrefReorder", []);
-                    ImGui.TextUnformatted("Moving: " +entry.Value.Item1);
+                    ImGui.TextUnformatted("正在移动：" + entry.Value.Item1);
                 }
             }
 
@@ -226,7 +226,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
 
         var currentValue = CurrentValue(configuration);
 
-        ImGui.TextUnformatted("Add Preference:");
+        ImGui.TextUnformatted("添加获取偏好：");
         ImGui.SameLine();
         ImGui.SetNextItemWidth(LabelSize);
         using (var combo = ImRaii.Combo("##Add" + Key, "", ImGuiComboFlags.HeightLarge))
@@ -243,7 +243,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
             }
         }
         ImGui.SameLine();
-        ImGui.TextUnformatted("Add Item Preference:");
+        ImGui.TextUnformatted("添加物品偏好：");
         ImGui.SameLine();
         ImGui.SetNextItemWidth(LabelSize);
         using (var combo = ImRaii.Combo("##AddItem" + Key, "", ImGuiComboFlags.HeightLarge))
@@ -260,7 +260,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
                 ImGui.Separator();
                 if (_searchString == "")
                 {
-                    ImGui.TextUnformatted("Start typing to search...");
+                    ImGui.TextUnformatted("输入关键词以搜索…");
                 }
 
                 foreach (var item in SearchItems.Where(c => !currentValue.ContainsKey((IngredientPreferenceType.Item, c.RowId))))
@@ -275,7 +275,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
 
         var resetWidth = ImGui.CalcTextSize("Reset to Default").X + ImGui.GetStyle().FramePadding.X * 2;
         ImGui.SameLine(ImGui.GetContentRegionMax().X - resetWidth);
-        if (ImGui.Button("Reset to Default##IngredientPref"))
+        if (ImGui.Button("恢复默认##IngredientPref"))
         {
             _popupService.AddPopup(new ConfirmPopup(typeof(CraftsWindow), "resetIngredientPref",
                 "Are you sure you want to reset the ingredient sourcing order to default?",

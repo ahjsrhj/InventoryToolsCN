@@ -74,8 +74,8 @@ public class TooltipGlamourReadySetScopeSetting : Setting<List<InventorySearchSc
     }
 
     public override string Key { get; set; } = "TooltipGlamourReadySetScope";
-    public override string Name { get; set; } = "Outfit Glamour (Search Locations)";
-    public override string HelpText { get; set; } = "Which inventories should be searched when determining which outfit glamour set items you already own?";
+    public override string Name { get; set; } = "套装幻化（搜索范围）";
+    public override string HelpText { get; set; } = "统计已持有的套装幻化物品时，要检索哪些库存？";
     
     public override string Version => "15.0.5";
 }

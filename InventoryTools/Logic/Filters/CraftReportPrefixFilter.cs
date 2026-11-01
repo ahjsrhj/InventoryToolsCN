@@ -32,7 +32,7 @@ public class CraftReportPrefixFilter : ChoiceFilter<CraftReportPrefix>
     }
     
     public override string Key { get; set; } = "CraftReportPrefix";
-    public override string Name { get; set; } = "Notification Prefix";
+    public override string Name { get; set; } = "通知前缀";
     
     public override string HelpText { get; set; } =
         "What to prefix each acquisition progress message with. 'Plugin Name' uses [AT], 'Craft List Name' uses the name of this craft list.";

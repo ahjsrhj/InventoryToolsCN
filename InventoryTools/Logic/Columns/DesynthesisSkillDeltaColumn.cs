@@ -202,7 +202,7 @@ public class DesynthesisSkillDeltaColumn : Column<(decimal, DesynthResult)?>
     }
 
 
-    public override string Name { get; set; } = "Desynthesis Skill Delta";
+    public override string Name { get; set; } = "精制技能差值";
     public override float Width { get; set; } = 100;
 
     public override string HelpText { get; set; } =

@@ -23,8 +23,8 @@ namespace InventoryTools.Logic.Filters
             ShowOperatorTooltip = true;
         }
         public override string Key { get; set; } = "MBPrice";
-        public override string Name { get; set; } = "Marketboard Avg. Price";
-        public override string HelpText { get; set; } = "The market board price of the item. For this to work you need to have automatic pricing enabled and also note that any background price updates will not be evaluated until an event that refreshes the inventory occurs(this happens fairly often).";
+        public override string Name { get; set; } = "市场均价";
+        public override string HelpText { get; set; } = "物品在市场上的价格。需先启用自动获取价格。后台价格更新会在库存刷新时生效，而库存刷新通常会频繁发生。";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Market;
 
         public override bool? FilterItem(FilterConfiguration configuration,InventoryItem item)

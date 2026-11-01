@@ -29,8 +29,8 @@ public class TooltipCategoryWhitelistSetting : MultipleChoiceSetting<uint>
     }
 
     public override string Key { get; set; } = "TooltipWhitelistCategories";
-    public override string Name { get; set; } = "Tooltip Category Whitelist";
-    public override string HelpText { get; set; } = "When adding information to tooltips, should we limit the items affected to these categories? If 'Tooltip Category Blacklist` is checked, this functionality will be reversed.";
+    public override string Name { get; set; } = "提示框分类白名单";
+    public override string HelpText { get; set; } = "向提示框添加信息时，是否仅影响这些物品分类？若启用“提示框分类黑名单”，此规则将反转。";
     
     public override Dictionary<uint, string> GetChoices(InventoryToolsConfiguration configuration)
     {

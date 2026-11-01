@@ -25,15 +25,15 @@ namespace InventoryTools.Logic.Filters.Abstract
             var currentValue = CurrentValue(configuration);
             if (currentValue == null)
             {
-                return "N/A";
+                return "不适用";
             }
 
             if (currentValue == true)
             {
-                return "Yes";
+                return "是";
             }
 
-            return "No";
+            return "否";
         }
 
         public bool? ConvertSelection(string selection)
@@ -43,7 +43,7 @@ namespace InventoryTools.Logic.Filters.Abstract
                 return null;
             }
 
-            if (selection == "Yes")
+            if (selection == "是")
             {
                 return true;
             }
@@ -51,7 +51,7 @@ namespace InventoryTools.Logic.Filters.Abstract
             return false;
         }
 
-        private readonly string[] Choices = new []{"N/A", "Yes", "No"};
+        private readonly string[] Choices = new []{"不适用", "是", "否"};
 
         public virtual string[] GetChoices()
         {
@@ -96,7 +96,7 @@ namespace InventoryTools.Logic.Filters.Abstract
             if (HasValueSet(configuration) && ShowReset)
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+            if (ImGui.Button("重置##" + Key + "Reset"))
                 {
                     ResetFilter(configuration);
                 }
