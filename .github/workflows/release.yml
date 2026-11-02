@@ -1,0 +1,98 @@
+name: Release
+
+# Runs after a successful Build on main (push only). Creates tag v<version> and a
+# GitHub Release with latest.zip from the Build artifact, then triggers pr.yml to
+# update pluginmaster.json in the plugin repository.
+#
+# Test results do not gate this workflow. Run Tests is a separate workflow.
+# Releases are skipped if the tag/release for the CHANGELOG version already exists.
+
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
+    branches:
+      - main
+
+env:
+  INTERNAL_NAME: InventoryTools
+  PLUGIN_WORKFLOW: pr.yml
+
+jobs:
+  release:
+    name: Create GitHub Release
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Checkout the built commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+
+      - name: Extract version and changelog
+        id: changelog
+        run: |
+          VERSION=$(grep -m1 -oP '(?<=## \[)[0-9]+\.[0-9]+\.[0-9]+' ${{ env.INTERNAL_NAME }}/CHANGELOG.md)
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+          awk -v ver=$VERSION '/^#+ \[/ { if (p) { exit }; if ($2 == "["ver"]") { p=1; next} } p && NF' ${{ env.INTERNAL_NAME }}/CHANGELOG.md > release-notes.md
+
+      - name: Check whether the release already exists
+        id: existing
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.changelog.outputs.tag }}
+        run: |
+          if gh release view "$TAG" --repo "${{ github.repository }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+            echo "Release $TAG already exists, skipping."
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Download Build artifact
+        if: steps.existing.outputs.exists == 'false'
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify artifact
+        if: steps.existing.outputs.exists == 'false'
+        run: |
+          test -f dist/latest.zip || { echo "latest.zip missing from dist artifact"; ls -la dist; exit 1; }
+          sha256sum dist/latest.zip
+
+      - name: Create tag and release
+        if: steps.existing.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.changelog.outputs.tag }}
+          TARGET: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          gh release create "$TAG" dist/latest.zip \
+            --repo "${{ github.repository }}" \
+            --target "$TARGET" \
+            --title "$TAG" \
+            --notes-file release-notes.md
+
+      - name: Trigger plugin repository update
+        if: steps.existing.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG: ${{ steps.changelog.outputs.tag }}
+        run: |
+          # Tags pushed with GITHUB_TOKEN do not trigger other workflows, so dispatch pr.yml explicitly.
+          gh workflow run ${{ env.PLUGIN_WORKFLOW }} \
+            --repo "${{ github.repository }}" \
+            --ref "$TAG" \
+            -f tag="$TAG"
