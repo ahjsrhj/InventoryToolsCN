@@ -37,7 +37,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
         Key = GenericKey;
         _columns = new List<TableColumn<AirshipExplorationPointRow>>()
         {
-            new("Icon", 32, ImGuiTableColumnFlags.WidthFixed)
+            new("图标", 32, ImGuiTableColumnFlags.WidthFixed)
             {
                 OnLeftClick = OnLeftClick,
                 Draw = (ex, contentTypeId) =>
@@ -49,7 +49,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     }
                 }
             },
-            new("Name", 150, ImGuiTableColumnFlags.WidthFixed)
+            new("名称", 150, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -73,7 +73,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted(ex.Base.NameShort.ExtractText().ToString());
                 }
             },
-            new("Unlock Zone", 150, ImGuiTableColumnFlags.WidthFixed)
+            new("解锁区域", 150, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -100,7 +100,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     }
                 }
             },
-            new("Rank Required", 100, ImGuiTableColumnFlags.WidthFixed)
+            new("所需等级", 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -124,7 +124,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted((ex.Base.RankReq.ToString() ?? "").ToString());
                 }
             },
-            new("Ceruleum Required", 100, ImGuiTableColumnFlags.WidthFixed)
+            new("所需青碳", 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -148,7 +148,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted((ex.Base.CeruleumTankReq.ToString() ?? "").ToString());
                 }
             },
-            new("Survey Duration (minutes)", 100, ImGuiTableColumnFlags.WidthFixed)
+            new("探测时长（分钟）", 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -172,7 +172,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted((ex.Base.SurveyDurationmin.ToString() ?? "").ToString());
                 }
             },
-            new("Surveillance Required", 100, ImGuiTableColumnFlags.WidthFixed)
+            new("所需侦察值", 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -196,7 +196,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                     ImGui.TextUnformatted((ex.Base.SurveillanceReq.ToString() ?? "").ToString());
                 }
             },
-            new("Drops", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
+            new("掉落", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
             {
                 Sort = (specs, exes) =>
                 {

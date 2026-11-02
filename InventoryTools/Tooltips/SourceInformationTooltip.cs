@@ -107,7 +107,7 @@ public class SourceInformationTooltip : BaseTooltip
 
                     if (groupedLine.Count() > 20)
                     {
-                        textLines[^1] += " (" + (groupedLine.Count() - 20) + " more)";
+                        textLines[^1] += " (" + (groupedLine.Count() - 20) + " 项)";
                     }
                 }
                 else

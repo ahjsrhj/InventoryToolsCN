@@ -72,7 +72,7 @@ public class SourceWindow : GenericTabbedTable<(SourceType, ItemInfoType)>
         WindowName = "Submarines";
         _columns = new List<TableColumn<(SourceType, ItemInfoType)>>()
         {
-            new("Name", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("名称", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -96,7 +96,7 @@ public class SourceWindow : GenericTabbedTable<(SourceType, ItemInfoType)>
                     ImGui.TextUnformatted((ex.Item1 == SourceType.Source ? _itemInfoRenderService.GetSourceTypeName(ex.Item2) : _itemInfoRenderService.GetUseTypeName(ex.Item2)).Singular);
                 }
             },
-            new("Help Text", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("帮助文本", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -120,7 +120,7 @@ public class SourceWindow : GenericTabbedTable<(SourceType, ItemInfoType)>
                     ImGui.TextUnformatted((ex.Item1 == SourceType.Source ? _itemInfoRenderService.GetSourceHelpText(ex.Item2) : _itemInfoRenderService.GetUseHelpText(ex.Item2)));
                 }
             },
-            new("Relationship Type", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("关系类型", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -144,7 +144,7 @@ public class SourceWindow : GenericTabbedTable<(SourceType, ItemInfoType)>
                     ImGui.TextUnformatted(_itemInfoRenderService.GetRelationshipName(GetRelationType(ex.Item1, ex.Item2)));
                 }
             },
-            new("Sample", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("示例", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {

@@ -36,7 +36,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
 
         _columns = new List<TableColumn<ContentFinderConditionRow>>()
         {
-            new("Icon", 32, ImGuiTableColumnFlags.WidthFixed)
+            new("图标", 32, ImGuiTableColumnFlags.WidthFixed)
             {
                 OnLeftClick = OnLeftClick,
                 Draw = (ex, contentTypeId) =>
@@ -48,7 +48,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     }
                 }
             },
-            new("Name", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("名称", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -72,7 +72,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.FormattedName);
                 }
             },
-            new("Roulettes", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("轮换任务", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -96,7 +96,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Roulettes);
                 }
             },
-            new("Level", 100, ImGuiTableColumnFlags.WidthFixed)
+            new("等级", 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -120,7 +120,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Base.ClassJobLevelRequired.ToString());
                 }
             },
-            new("Sync Level", 100, ImGuiTableColumnFlags.WidthFixed)
+            new("同步等级", 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -144,7 +144,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Base.ClassJobLevelSync.ToString());
                 }
             },
-            new("Item Level", 100, ImGuiTableColumnFlags.WidthFixed)
+            new("物品等级", 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -168,7 +168,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Base.ItemLevelRequired.ToString());
                 }
             },
-            new("Item Level Sync", 100, ImGuiTableColumnFlags.WidthFixed)
+            new("物品等级同步", 100, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -192,7 +192,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     ImGui.TextUnformatted(ex.Base.ItemLevelSync.ToString());
                 }
             },
-            new("Allows Undersized", 80, ImGuiTableColumnFlags.WidthFixed)
+            new("允许人数不足", 80, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -217,7 +217,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     _imGuiService.DrawUldIcon(ex.Base.AllowUndersized ? _imGuiService.TickIcon : _imGuiService.CrossIcon, new Vector2(RowSize, RowSize));
                 }
             },
-            new("Allows Explorer Mode", 80, ImGuiTableColumnFlags.WidthFixed)
+            new("允许探索者模式", 80, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -242,7 +242,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     _imGuiService.DrawUldIcon(ex.Base.AllowExplorerMode ? _imGuiService.TickIcon : _imGuiService.CrossIcon, new Vector2(RowSize, RowSize));
                 }
             },
-            new("PVP", 50, ImGuiTableColumnFlags.WidthFixed)
+            new("PvP", 50, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {

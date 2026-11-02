@@ -33,7 +33,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
         Key = "retainerTasks";
         _columns = new List<TableColumn<RetainerTaskRow>>()
         {
-            new("Icon", 32, ImGuiTableColumnFlags.WidthFixed)
+            new("图标", 32, ImGuiTableColumnFlags.WidthFixed)
             {
                 OnLeftClick = OnLeftClick,
                 Draw = (ex, contentTypeId) =>
@@ -45,7 +45,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
                     }
                 }
             },
-            new("Name", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("名称", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -69,7 +69,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
                     ImGui.TextUnformatted(ex.FormattedName.ToString());
                 }
             },
-            new("Task Type", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("任务类型", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -94,7 +94,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
                 },
                 AllTabOnly = true
             },
-            new("Level", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("等级", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -118,7 +118,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
                     ImGui.TextUnformatted(ex.Base.RetainerLevel.ToString());
                 }
             },
-            new("Duration", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("时长", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -142,7 +142,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
                     ImGui.TextUnformatted(ex.DurationString);
                 }
             },
-            new("Experience", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("经验值", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -166,7 +166,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
                     ImGui.TextUnformatted(ex.ExperienceString.ToString());
                 }
             },
-            new("Venture Cost", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("探险花费", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -190,7 +190,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
                     ImGui.TextUnformatted(ex.Base.VentureCost.ToString());
                 }
             },
-            new("Average iLvl", 200, ImGuiTableColumnFlags.WidthFixed)
+            new("平均物品等级", 200, ImGuiTableColumnFlags.WidthFixed)
             {
                 Sort = (specs, exes) =>
                 {
@@ -214,7 +214,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
                     ImGui.TextUnformatted(ex.Base.RequiredItemLevel.ToString());
                 }
             },
-            new("Drops", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
+            new("掉落", 200, ImGuiTableColumnFlags.WidthFixed | ImGuiTableColumnFlags.NoSort)
             {
                 Sort = (specs, exes) =>
                 {

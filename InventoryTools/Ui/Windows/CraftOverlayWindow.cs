@@ -160,16 +160,16 @@ public class CraftOverlayWindow : OverlayWindow
                     switch (this.WindowState)
                     {
                         case CraftOverlayWindowState.Collapsed:
-                            nextState = "Expand";
+                            nextState = "展开";
                             break;
                         case CraftOverlayWindowState.Single:
-                            nextState = "Show More";
+                            nextState = "显示更多";
                             break;
                         case CraftOverlayWindowState.List:
-                            nextState = "Collapse";
+                            nextState = "折叠";
                             break;
                     }
-                    ImGui.TextUnformatted($"左键：{(nextState == "Expand" ? "展开" : nextState == "Show More" ? "显示更多" : "折叠")}");
+                    ImGui.TextUnformatted($"左键：{nextState}");
                     ImGui.TextUnformatted("右键：打开菜单");
                 }
             }

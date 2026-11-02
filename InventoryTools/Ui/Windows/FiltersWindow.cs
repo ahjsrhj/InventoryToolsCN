@@ -703,7 +703,7 @@ namespace InventoryTools.Ui
                                         if (ImGui.MenuItem("新建制作清单"))
                                         {
                                             _popupService.AddPopup(new NamePopup(typeof(FiltersWindow), "newCraftList",
-                                                "New Craft List",
+                                                "新制作清单",
                                                 result =>
                                                 {
                                                     if (result.Item1)
@@ -731,7 +731,7 @@ namespace InventoryTools.Ui
                                         if (ImGui.MenuItem("新建临时制作清单"))
                                         {
                                             _popupService.AddPopup(new NamePopup(typeof(FiltersWindow), "newCraftList",
-                                                "New Craft List",
+                                                "新制作清单",
                                                 result =>
                                                 {
                                                     if (result.Item1)
@@ -791,7 +791,7 @@ namespace InventoryTools.Ui
                                         {
                                             _popupService.AddPopup(new NamePopup(typeof(FiltersWindow),
                                                 "newCuratedList",
-                                                "New Curated List",
+                                                "新精选清单",
                                                 result =>
                                                 {
                                                     if (result.Item1)
