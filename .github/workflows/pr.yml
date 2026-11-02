@@ -1,4 +1,8 @@
-name: Create D17 PR
+name: Update plugin repository
+
+# Runs on tag push (e.g. v15.0.13). Updates pluginmaster.json in ahjsrhj/DalamudPlugins
+# so Dalamud users receive the new version. The download link points at the GitHub
+# Release for this tag, so the Release must exist before this workflow runs.
 
 on:
   push:
@@ -8,7 +12,8 @@ on:
 env:
   INTERNAL_NAME: InventoryTools
   PLUGIN_NAME: Allagan Tools
-  UPDATE_NAME: AT
+  PLUGIN_REPO: ahjsrhj/DalamudPlugins
+  PLUGIN_REPO_DIR: external
 
 jobs:
   update-repo:
@@ -27,50 +32,65 @@ jobs:
           echo "$CHANGELOG" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      - name: Checkout fork of external repo
+      - name: Checkout plugin repository
         uses: actions/checkout@v4
         with:
-          repository: Critical-Impact/DalamudPluginsD17
+          repository: ${{ env.PLUGIN_REPO }}
           fetch-depth: '1'
-          path: external
-          token: ${{ secrets.PR_PAT }}
-
-      - name: Configure git and create branch
-        run: |
-          cd external
-          git remote add goatcorp https://github.com/goatcorp/DalamudPluginsD17.git
-          git fetch goatcorp
-          git checkout -b ${{ env.UPDATE_NAME }}-${{ steps.changelog.outputs.version }} goatcorp/main
+          path: ${{ env.PLUGIN_REPO_DIR }}
+          token: ${{ secrets.PLUGIN_REPO_PAT }}
 
       - name: Configure git author
         run: |
-          cd external
+          cd ${{ env.PLUGIN_REPO_DIR }}
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
-      - name: Update manifest.toml
+      - name: Update pluginmaster.json
+        env:
+          INTERNAL_NAME: ${{ env.INTERNAL_NAME }}
+          PLUGIN_REPO_DIR: ${{ env.PLUGIN_REPO_DIR }}
+          VERSION: ${{ steps.changelog.outputs.version }}
+          CHANGELOG_TEXT: ${{ steps.changelog.outputs.log }}
+          TAG: ${{ github.ref_name }}
         run: |
-          cd external
-          pip install toml
-          python - <<EOF
-          import toml
+          python3 - <<'EOF'
+          import json, os, sys, time
           from pathlib import Path
-          
-          manifest_path = Path("stable/${{ env.INTERNAL_NAME }}/manifest.toml")
-          data = toml.load(manifest_path)
-          
-          # Update commit and changelog
-          data["plugin"]["commit"] = "${GITHUB_SHA}"
-          data["plugin"]["version"] = "${{ steps.changelog.outputs.version }}"
-          data["plugin"]["changelog"] = """${{ steps.changelog.outputs.log }}"""
-          
-          with manifest_path.open("w") as f:
-              toml.dump(data, f)
-          EOF
-          git add stable/${{ env.INTERNAL_NAME }}/manifest.toml
-          git commit -m "${{ env.PLUGIN_NAME }} ${{ steps.changelog.outputs.version }}"          
 
-      - name: Push branch to fork
+          path = Path(os.environ["PLUGIN_REPO_DIR"]) / "pluginmaster.json"
+          entries = json.loads(path.read_text(encoding="utf-8"))
+
+          url = f"https://github.com/ahjsrhj/InventoryToolsCN/releases/download/{os.environ['TAG']}/latest.zip"
+
+          found = False
+          for entry in entries:
+              if entry.get("InternalName") != os.environ["INTERNAL_NAME"]:
+                  continue
+              found = True
+              entry["AssemblyVersion"] = os.environ["VERSION"]
+              entry["DownloadLinkInstall"] = url
+              entry["DownloadLinkTesting"] = url
+              entry["DownloadLinkUpdate"] = url
+              entry["Changelog"] = os.environ["CHANGELOG_TEXT"].strip()
+              entry["LastUpdate"] = int(time.time())
+
+          if not found:
+              sys.exit(f"Entry {os.environ['INTERNAL_NAME']} not found in pluginmaster.json")
+
+          path.write_text(json.dumps(entries, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          EOF
+
+      - name: Commit and push
+        env:
+          VERSION: ${{ steps.changelog.outputs.version }}
+          PLUGIN_NAME: ${{ env.PLUGIN_NAME }}
         run: |
-          cd external
-          git push origin -f HEAD:${{ env.UPDATE_NAME }}-${{ steps.changelog.outputs.version }}
+          cd ${{ env.PLUGIN_REPO_DIR }}
+          git add pluginmaster.json
+          if git diff --cached --quiet; then
+            echo "pluginmaster.json unchanged, nothing to push"
+            exit 0
+          fi
+          git commit -m "${PLUGIN_NAME} ${VERSION}"
+          git push origin HEAD:main
