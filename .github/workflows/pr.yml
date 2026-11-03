@@ -1,13 +1,11 @@
 name: Update plugin repository
 
-# Runs on tag push (e.g. v15.0.13). Updates pluginmaster.json in ahjsrhj/DalamudPlugins
-# so Dalamud users receive the new version. The download link points at the GitHub
-# Release for this tag, so the Release must exist before this workflow runs.
+# Updates pluginmaster.json in ahjsrhj/DalamudPlugins so Dalamud users receive the new
+# version. It is dispatched by release.yml after the GitHub Release for the tag exists,
+# because the download link points at that Release. It does not run on tag pushes
+# directly, which would race the release.
 
 on:
-  push:
-    tags:
-      - '*'
   workflow_dispatch:
     inputs:
       tag:
