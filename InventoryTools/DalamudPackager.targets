@@ -1,5 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
+    <Target Name="PreparePluginManifest" BeforeTargets="PackagePlugin" Condition="'$(Configuration)' == 'Release'">
+        <Copy SourceFiles="$(ProjectDir)InventoryTools.json"
+              DestinationFiles="$(OutputPath)InventoryToolsCN.json"
+              OverwriteReadOnlyFiles="true" />
+    </Target>
+
     <Target Name="PackagePlugin" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
         <DalamudPackager
                 ProjectDir="$(ProjectDir)"
