@@ -36,7 +36,10 @@ jobs:
       - name: Restore
         run: dotnet restore ${{ env.INTERNAL_NAME }}
       - name: Build
-        run: dotnet build -c ${{ env.CONFIGURATION }} --no-restore ${{ env.INTERNAL_NAME }}
+        shell: pwsh
+        run: |
+          $version = $env:GITHUB_REF_NAME.TrimStart('v')
+          dotnet build -c $env:CONFIGURATION --no-restore $env:INTERNAL_NAME -p:Version=$version
       - name: Verify latest.zip
         shell: pwsh
         run: |
@@ -47,6 +50,15 @@ jobs:
           $manifest = $archive.Entries | Where-Object { $_.Name -eq "InventoryToolsCN.json" }
           $archive.Dispose()
           if (-not $manifest) { throw "latest.zip does not contain InventoryToolsCN.json" }
+          $expectedVersion = "$($env:GITHUB_REF_NAME.TrimStart('v')).0"
+          $manifestStream = $manifest.Open()
+          $reader = [System.IO.StreamReader]::new($manifestStream)
+          $manifestData = $reader.ReadToEnd() | ConvertFrom-Json
+          $reader.Dispose()
+          $manifestStream.Dispose()
+          if ($manifestData.AssemblyVersion -ne $expectedVersion) {
+            throw "AssemblyVersion mismatch: expected $expectedVersion, got $($manifestData.AssemblyVersion)"
+          }
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
