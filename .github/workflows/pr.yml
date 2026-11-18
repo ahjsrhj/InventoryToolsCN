@@ -14,7 +14,9 @@ on:
 
 env:
   INTERNAL_NAME: InventoryTools
-  PLUGIN_NAME: Allagan Tools
+  # Dalamud InternalName in pluginmaster.json (must match InventoryTools.json)
+  PLUGIN_INTERNAL_NAME: InventoryToolsCN
+  PLUGIN_NAME: Allagan Tools CN
   PLUGIN_REPO: ahjsrhj/DalamudPlugins
   PLUGIN_REPO_DIR: external
 
@@ -51,7 +53,7 @@ jobs:
 
       - name: Update pluginmaster.json
         env:
-          INTERNAL_NAME: ${{ env.INTERNAL_NAME }}
+          INTERNAL_NAME: ${{ env.PLUGIN_INTERNAL_NAME }}
           PLUGIN_REPO_DIR: ${{ env.PLUGIN_REPO_DIR }}
           VERSION: ${{ steps.changelog.outputs.version }}
           CHANGELOG_TEXT: ${{ steps.changelog.outputs.log }}
