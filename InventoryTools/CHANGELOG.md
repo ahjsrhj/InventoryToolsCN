@@ -8,6 +8,12 @@ Instead the changelog reader and automation surrounding plugin PRs will add the 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.html).
 
+## [15.0.14] - 2026-11-19
+
+### Changed
+- 插件更名为 Allagan Tools CN（InternalName: InventoryToolsCN），用于国服适配；与官方版可同时安装和搜索。
+- 从官方版迁移的用户需要重新安装，原有配置不会自动迁移。
+
 ## [15.0.13] - 2026-09-13
 
 ### Changed
