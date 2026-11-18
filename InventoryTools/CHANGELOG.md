@@ -8,7 +8,7 @@ Instead the changelog reader and automation surrounding plugin PRs will add the 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.html).
 
-## [15.1.4] - 2026-11-18
+## [15.1.5] - 2026-11-18
 
 ### 新增
 - 怪物图鉴新增地点列和狩猎标记列，并支持按当前区域打开或跟随。
