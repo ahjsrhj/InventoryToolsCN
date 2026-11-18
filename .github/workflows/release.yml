@@ -48,7 +48,6 @@ jobs:
           Add-Type -AssemblyName System.IO.Compression.FileSystem
           $archive = [System.IO.Compression.ZipFile]::OpenRead($zip)
           $manifest = $archive.Entries | Where-Object { $_.Name -eq "InventoryToolsCN.json" }
-          $archive.Dispose()
           if (-not $manifest) { throw "latest.zip does not contain InventoryToolsCN.json" }
           $expectedVersion = "$($env:GITHUB_REF_NAME.TrimStart('v')).0"
           $manifestStream = $manifest.Open()
@@ -56,6 +55,7 @@ jobs:
           $manifestData = $reader.ReadToEnd() | ConvertFrom-Json
           $reader.Dispose()
           $manifestStream.Dispose()
+          $archive.Dispose()
           if ($manifestData.AssemblyVersion -ne $expectedVersion) {
             throw "AssemblyVersion mismatch: expected $expectedVersion, got $($manifestData.AssemblyVersion)"
           }
