@@ -30,9 +30,9 @@ public record BNpcZoneInfo(
 
 public class BNpcCompendiumType : CompendiumType<BNpcNameRow>
 {
-    private const string OpenWorldZoneType = "Open World";
-    private const string OtherZoneType = "Other";
-    private const string NotAHuntMark = "Not a Hunt Mark";
+    private const string OpenWorldZoneType = "野外区域";
+    private const string OtherZoneType = "其他";
+    private const string NotAHuntMark = "非狩猎标记";
 
     private static readonly EquipSlot[] SharedModelSlots =
     [
@@ -76,9 +76,9 @@ public class BNpcCompendiumType : CompendiumType<BNpcNameRow>
         _mobsByTerritory = new Lazy<Dictionary<uint, List<uint>>>(BuildMobsByTerritory);
     }
 
-    public override string Singular => "Mob";
-    public override string Plural => "Mobs";
-    public override string Description => "Monsters, where they spawn and what they drop.";
+    public override string Singular => "怪物";
+    public override string Plural => "怪物";
+    public override string Description => "查看怪物、出现地点及掉落物。";
     public override string Key => "mobs";
     public override (string?, uint?) Icon => (null, Icons.MobIcon);
 
@@ -142,30 +142,30 @@ public class BNpcCompendiumType : CompendiumType<BNpcNameRow>
             new CompendiumGrouping<BNpcNameRow>()
             {
                 Key = "zone_type",
-                Name = "Zone Type",
+                Name = "区域类型",
                 GroupsFunc = row => GetZoneInfo(row).ZoneTypes,
                 GroupMapping = zoneType => (string)zoneType,
             },
             new CompendiumGrouping<BNpcNameRow>()
             {
                 Key = "zone",
-                Name = "Zone",
+                Name = "区域",
                 GroupsFunc = row => GetZoneInfo(row).ZoneNames,
                 GroupMapping = zoneName => (string)zoneName,
                 CurrentGroupFunc = GetCurrentZoneName,
-                CurrentGroupLabel = "Current Zone",
+                CurrentGroupLabel = "当前区域",
             },
             new CompendiumGrouping<BNpcNameRow>()
             {
                 Key = "expansion",
-                Name = "Expansion",
+                Name = "资料片",
                 GroupsFunc = row => GetZoneInfo(row).Expansions,
                 GroupMapping = expansion => (string)expansion,
             },
             new CompendiumGrouping<BNpcNameRow>()
             {
                 Key = "hunt_rank",
-                Name = "Hunt Rank",
+                Name = "狩猎等级",
                 GroupFunc = GetHuntRank,
                 GroupMapping = huntRank => (string)huntRank,
             },

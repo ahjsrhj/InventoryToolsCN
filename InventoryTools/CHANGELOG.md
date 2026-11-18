@@ -8,6 +8,27 @@ Instead the changelog reader and automation surrounding plugin PRs will add the 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.html).
 
+## [15.1.1] - 2026-11-12
+
+### 新增
+- 怪物图鉴新增地点列和狩猎标记列，并支持按当前区域打开或跟随。
+
+### 修复
+- 修复图鉴发送到聊天的地图链接名称错误。
+
+## [15.1.0] - 2026-11-08
+
+### 新增
+- 新增怪物、宝箱和兽娘族图鉴，替代旧版怪物窗口。
+- 新增兽娘族作为物品用途，拆分奥密克戎新月宝箱与罐子的区域来源。
+- 角色和雇员页面新增删除按钮，物品窗口新增 Universalis 请求失败警告。
+
+### 变更
+- 更新 LuminaSupplemental 数据。
+
+### 修复
+- 修复怪物狩猎等级、出现地点及 Oizys/Auxesia 战利品来源显示问题。
+
 ## [15.0.14] - 2026-11-19
 
 ### Changed

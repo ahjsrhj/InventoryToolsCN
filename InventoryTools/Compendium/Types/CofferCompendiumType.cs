@@ -25,7 +25,7 @@ public class CofferCompendiumType : CompendiumType<CofferContents>, IDisposable
 {
     private const string ColumnVersion = "15.0.14";
 
-    private const string ScopeHelpText = "Owned means unlocked, or in the inventories of the current character, their retainers, free company or housing.";
+    private const string ScopeHelpText = "已拥有表示已解锁，或物品位于当前角色、雇员、部队或住宅的库存中。";
 
     private const byte TreasureMapFilterGroup = 18;
 
@@ -80,9 +80,9 @@ public class CofferCompendiumType : CompendiumType<CofferContents>, IDisposable
         _characterMonitor.OnCharacterRemoved += CharacterRemoved;
     }
 
-    public override string Singular => "Coffer";
-    public override string Plural => "Coffers";
-    public override string Description => "What drops from coffers, card packs, etc";
+    public override string Singular => "宝箱";
+    public override string Plural => "宝箱";
+    public override string Description => "查看宝箱、卡包等容器的掉落物。";
     public override string Key => "coffers";
     public override (string?, uint?) Icon => (null, 26531);
 
