@@ -14,7 +14,7 @@ on:
 
 env:
   INTERNAL_NAME: InventoryTools
-  # Dalamud InternalName in pluginmaster.json (must match InventoryTools.json)
+  # Dalamud InternalName in pluginmaster.json (must match InventoryToolsCN.json)
   PLUGIN_INTERNAL_NAME: InventoryToolsCN
   PLUGIN_NAME: Allagan Tools CN
   PLUGIN_REPO: ahjsrhj/DalamudPlugins

@@ -40,7 +40,7 @@ jobs:
       - name: Verify latest.zip
         shell: pwsh
         run: |
-          $zip = "InventoryTools\bin\Release\InventoryTools\latest.zip"
+          $zip = "InventoryTools\bin\Release\InventoryToolsCN\latest.zip"
           if (-not (Test-Path $zip)) { throw "latest.zip was not produced at $zip" }
           Add-Type -AssemblyName System.IO.Compression.FileSystem
           $archive = [System.IO.Compression.ZipFile]::OpenRead($zip)
@@ -52,7 +52,7 @@ jobs:
         with:
           name: dist
           path: |
-            InventoryTools\bin\Release\InventoryTools\latest.zip
+            InventoryTools\bin\Release\InventoryToolsCN\latest.zip
 
   release:
     name: Create GitHub Release
