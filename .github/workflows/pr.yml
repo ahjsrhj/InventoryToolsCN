@@ -31,7 +31,7 @@ jobs:
         id: changelog
         run: |
           VERSION="${GITHUB_REF_NAME#v}"
-          grep -q "## [$VERSION]" "${{ env.INTERNAL_NAME }}/CHANGELOG.md" || {
+          grep -Fq "## [$VERSION]" "${{ env.INTERNAL_NAME }}/CHANGELOG.md" || {
             echo "Tag version $VERSION is missing from CHANGELOG.md"
             exit 1
           }
