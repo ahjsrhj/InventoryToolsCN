@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Dalamud.NET.Sdk/15.0.0">
   <PropertyGroup>
     <AssemblyName>InventoryTools</AssemblyName>
-    <Version>15.0.14</Version>
     <NoWarn>IDE0003</NoWarn>
     <NoWarn>S3267</NoWarn>
     <OutputType>Library</OutputType>
@@ -12,12 +11,12 @@
     <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="AllaganLib.Interface" Version="2.2.0" />
+    <PackageReference Include="AllaganLib.Interface" Version="2.3.3" />
     <PackageReference Include="AllaganLib.Monitors" Version="2.2.9" />
     <PackageReference Include="Autofac" Version="9.3.2" />
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="11.0.2" />
-    <PackageReference Include="DalaMock.Host" Version="6.2.1" />
-    <PackageReference Include="DalaMock.Shared" Version="6.2.1" />
+    <PackageReference Include="DalaMock.Host" Version="6.2.2" />
+    <PackageReference Include="DalaMock.Shared" Version="6.2.2" />
     <PackageReference Include="Humanizer.Core" Version="3.0.10" />
     <PackageReference Include="Ionide.KeepAChangelog" Version="0.2.0" />
     <PackageReference Include="Microsoft.CodeAnalysis.BannedApiAnalyzers" Version="5.6.0">

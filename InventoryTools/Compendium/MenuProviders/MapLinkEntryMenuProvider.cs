@@ -17,13 +17,13 @@ public class MapLinkEntryMenuProvider(MediatorService mediatorService, IChatUtil
         if (ImGui.Selectable("在地图上查看"))
         {
             //TODO: add map location message
-            chatUtilities.PrintFullMapLink(item.Location);
+            chatUtilities.PrintFullMapLink(item.Location, item.LinkText);
         }
 
         if (ImGui.Selectable("传送"))
         {
             MediatorService.Publish(new RequestTeleportToMapMessage(item.Location.Map.RowId, new Vector2((float)item.Location.MapX, (float)item.Location.MapY)));
-            chatUtilities.PrintFullMapLink(item.Location);
+            chatUtilities.PrintFullMapLink(item.Location, item.LinkText);
         }
     }
 
