@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using Ionide.KeepAChangelog;
@@ -23,7 +24,27 @@ public class ChangelogService
         _pluginLog = pluginLog;
         var assemblyLocation = _pluginInterface.AssemblyLocation.DirectoryName!;
         var fileName = Path.Combine(assemblyLocation, "CHANGELOG.md");
-        var parsedLogs = Ionide.KeepAChangelog.Parser.parseChangeLog(new FileInfo(fileName));
+        var parserFileName = fileName;
+        string? normalizedFileName = null;
+        var changelog = File.ReadAllText(fileName);
+
+        // Ionide.KeepAChangelog accepts three-part SemVer, while CN release
+        // versions include a fourth patch component.
+        if (Regex.IsMatch(changelog, @"^## \[\d+\.\d+\.\d+\.\d+\]", RegexOptions.Multiline))
+        {
+            normalizedFileName = Path.Combine(Path.GetTempPath(), $"InventoryToolsCN-{Guid.NewGuid():N}.md");
+            var normalizedChangelog = Regex.Replace(
+                changelog,
+                @"^(## \[\d+\.\d+\.\d+)\.\d+(\])",
+                "$1$2",
+                RegexOptions.Multiline);
+            File.WriteAllText(normalizedFileName, normalizedChangelog);
+            parserFileName = normalizedFileName;
+        }
+
+        var parsedLogs = Ionide.KeepAChangelog.Parser.parseChangeLog(new FileInfo(parserFileName));
+        if (normalizedFileName != null)
+            File.Delete(normalizedFileName);
         if (!parsedLogs.IsOk)
         {
             this.changeLogs = new();
