@@ -49,7 +49,7 @@ jobs:
           $archive = [System.IO.Compression.ZipFile]::OpenRead($zip)
           $manifest = $archive.Entries | Where-Object { $_.Name -eq "InventoryToolsCN.json" }
           if (-not $manifest) { throw "latest.zip does not contain InventoryToolsCN.json" }
-          $expectedVersion = "$($env:GITHUB_REF_NAME.TrimStart('v')).0"
+          $expectedVersion = $env:GITHUB_REF_NAME.TrimStart('v')
           $manifestStream = $manifest.Open()
           $reader = [System.IO.StreamReader]::new($manifestStream)
           $manifestData = $reader.ReadToEnd() | ConvertFrom-Json
@@ -80,7 +80,7 @@ jobs:
       - name: Extract version and changelog
         id: changelog
         run: |
-          VERSION=$(grep -m1 -oP '(?<=## \[)[0-9]+\.[0-9]+\.[0-9]+' ${{ env.INTERNAL_NAME }}/CHANGELOG.md)
+          VERSION=$(grep -m1 -oP '(?<=## \[)[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+' ${{ env.INTERNAL_NAME }}/CHANGELOG.md)
           if [ "v$VERSION" != "${{ github.ref_name }}" ]; then
             echo "::error::Tag ${{ github.ref_name }} does not match CHANGELOG version $VERSION"
             exit 1

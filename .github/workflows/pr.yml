@@ -77,8 +77,8 @@ jobs:
               if entry.get("InternalName") != os.environ["INTERNAL_NAME"]:
                   continue
               found = True
-              # .NET assemblies use a four-part version; Dalamud compares this exactly.
-              entry["AssemblyVersion"] = os.environ["VERSION"] + ".0"
+              # The four-part release tag is the single source of truth.
+              entry["AssemblyVersion"] = os.environ["VERSION"]
               entry["DownloadLinkInstall"] = url
               entry["DownloadLinkTesting"] = url
               entry["DownloadLinkUpdate"] = url
