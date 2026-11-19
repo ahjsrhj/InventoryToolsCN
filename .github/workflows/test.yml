@@ -28,10 +28,23 @@ jobs:
           key: exd-files-data-${{hashFiles('exd-data/.cachemeta.json')}}
           restore-keys: |
             exd-files-data-
+      - name: Resolve latest CLUT version
+        id: clut-version
+        shell: bash
+        run: |
+          version=$(curl --fail --silent --show-error \
+            https://api.github.com/repos/WorkingRobot/ffxiv-lut/contents/cluts/4e9a232b \
+            | jq -r '.[].name | select(test("^[0-9].*\\.clut$")) | rtrimstr(".clut")' \
+            | sort -V | tail -n 1)
+          test -n "$version"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Using CLUT version $version"
+
       - name: Download EXD Files
         uses: WorkingRobot/ffxiv-downloader@v11.0.0
         with:
           output-path: exd-data
+          version: ${{ steps.clut-version.outputs.version }}
           regex: '^sqpack\/ffxiv\/0a0000\..+$'
       - uses: actions/setup-dotnet@v4
         with:
